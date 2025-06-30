@@ -1,0 +1,79 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+.navbar {
+    transition: background-color 0.3s;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+    color: white;
+    padding: 150px 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section h1 {
+    font-weight: 700;
+}
+
+/* Services Section */
+#services .card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#services .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* About Section */
+#about img {
+    transition: transform 0.3s;
+}
+
+#about img:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+#contact form .form-control {
+    transition: border-color 0.3s;
+}
+
+#contact form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+/* Animations */
+.section-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.section-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
