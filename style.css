@@ -1,31 +1,42 @@
+:root {
+    --dark-color: #212121;
+    --light-color: #F8F8F8;
+    --accent-color: #B8860B;
+}
+
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
 /* Navigation Bar */
 .navbar {
     transition: background-color 0.3s;
+    background-color: var(--dark-color) !important;
 }
 
 .navbar-brand {
     font-weight: 700;
     font-size: 1.5rem;
+    color: var(--light-color) !important;
 }
 
 .nav-link {
     transition: color 0.3s;
+    color: var(--light-color) !important;
 }
 
 .nav-link:hover {
-    color: #007bff;
+    color: var(--accent-color) !important;
 }
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
+    color: var(--light-color);
     padding: 150px 0;
     height: 100vh;
     display: flex;
@@ -39,6 +50,8 @@ body {
 
 /* Services Section */
 #services .card {
+    background-color: var(--light-color);
+    color: var(--dark-color);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -48,6 +61,11 @@ body {
 }
 
 /* About Section */
+#about {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
 #about img {
     transition: transform 0.3s;
 }
@@ -58,8 +76,8 @@ body {
 
 /* Why Choose Us Section */
 .feature-box {
-    background-color: #fff;
-    border: 1px solid #e9ecef;
+    background-color: var(--light-color);
+    border: 1px solid var(--dark-color);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -69,7 +87,7 @@ body {
 }
 
 .feature-box .text-primary {
-    color: #007bff !important;
+    color: var(--accent-color) !important;
 }
 
 /* Our Process Section */
@@ -77,6 +95,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
 .process-step:hover {
@@ -85,12 +105,12 @@ body {
 }
 
 .process-icon {
-    color: #007bff;
+    color: var(--accent-color);
 }
 
 /* Call to Action Section */
 .cta-section {
-    background: #007bff;
+    background: var(--dark-color);
     padding: 80px 0;
 }
 
@@ -100,26 +120,28 @@ body {
 
 /* FAQ Section */
 #faq .accordion-button {
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: var(--dark-color);
+    color: var(--light-color);
     font-weight: bold;
 }
 
 #faq .accordion-button:not(.collapsed) {
-    color: #007bff;
-    background-color: #e9f5ff;
+    color: var(--accent-color);
+    background-color: var(--dark-color);
     box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
 }
 
 #faq .accordion-body {
-    background-color: #fff;
-    color: #555;
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
 /* Testimonials Section */
 #testimonials .card {
     border: none;
     transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
 #testimonials .card:hover {
@@ -136,21 +158,34 @@ body {
 /* Contact Section */
 #contact form .form-control {
     transition: border-color 0.3s;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border-color: var(--dark-color);
 }
 
 #contact form .form-control:focus {
-    border-color: #007bff;
+    border-color: var(--accent-color);
     box-shadow: none;
 }
 
-/* Animations */
-.section-fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s, transform 0.5s;
+/* Footer */
+footer {
+    background-color: var(--dark-color) !important;
+    color: var(--light-color) !important;
 }
 
-.section-fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+footer .list-unstyled li {
+    color: var(--light-color);
+}
+
+footer .list-unstyled li i {
+    color: var(--accent-color);
+}
+
+footer a {
+    color: var(--light-color);
+}
+
+footer a:hover {
+    color: var(--accent-color);
 }
