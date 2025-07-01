@@ -54,6 +54,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe"></i> Language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('ar')">العربية</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -63,9 +72,9 @@
     <header id="home" class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80');">
         <div class="hero-overlay"></div>
         <div class="container text-center">
-            <h1 class="display-4">Your 360° Growth Partner in Egypt</h1>
-            <p class="lead">A full-service marketing provider for the entire MENA region.</p>
-            <a href="#contact" class="btn btn-primary btn-lg">Get a Free Consultation</a>
+            <h1 class="display-4" data-key="hero_title">Your 360° Growth Partner in Egypt</h1>
+            <p class="lead" data-key="hero_subtitle">A full-service marketing provider for the entire MENA region.</p>
+            <a href="#contact" class="btn btn-primary btn-lg" data-key="hero_button">Get a Free Consultation</a>
         </div>
     </header>
 
@@ -73,16 +82,16 @@
     <section id="services" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>Our Services</h2>
-                <p class="lead">End-to-end solutions to grow your business.</p>
+                <h2 data-key="services_title">Our Services</h2>
+                <p class="lead" data-key="services_subtitle">End-to-end solutions to grow your business.</p>
             </div>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 text-center service-card">
                         <div class="card-body">
                             <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Digital Marketing</h5>
-                            <p class="card-text">Complete suite of digital marketing services to elevate your brand's online presence.</p>
+                            <h5 class="card-title" data-key="digital_marketing">Digital Marketing</h5>
+                            <p class="card-text" data-key="digital_marketing_desc">Complete suite of digital marketing services to elevate your brand's online presence.</p>
                         </div>
                     </div>
                 </div>
@@ -90,8 +99,8 @@
                     <div class="card h-100 text-center service-card">
                         <div class="card-body">
                             <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Business Solutions</h5>
-                            <p class="card-text">Tailored strategies and technologies to optimize your operations and drive growth.</p>
+                            <h5 class="card-title" data-key="business_solutions">Business Solutions</h5>
+                            <p class="card-text" data-key="business_solutions_desc">Tailored strategies and technologies to optimize your operations and drive growth.</p>
                         </div>
                     </div>
                 </div>
@@ -99,8 +108,8 @@
                     <div class="card h-100 text-center service-card">
                         <div class="card-body">
                             <i class="fas fa-clipboard-check fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Business Audits</h5>
-                            <p class="card-text">A 360-degree view of your business to identify key areas for improvement.</p>
+                            <h5 class="card-title" data-key="business_audits">Business Audits</h5>
+                            <p class="card-text" data-key="business_audits_desc">A 360-degree view of your business to identify key areas for improvement.</p>
                         </div>
                     </div>
                 </div>
@@ -113,8 +122,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h2>About Menaverse Online</h2>
-                    <p>We are a team of passionate marketing experts dedicated to helping businesses in Egypt thrive. Our data-driven approach and deep understanding of the local market set us apart. We believe in building partnerships, not just campaigns.</p>
+                    <h2 data-key="about_us_title">About Menaverse Online</h2>
+                    <p data-key="about_us_desc">We are a team of passionate marketing experts dedicated to helping businesses in Egypt thrive. Our data-driven approach and deep understanding of the local market set us apart. We believe in building partnerships, not just campaigns.</p>
                 </div>
                 <div class="col-lg-6 text-center">
                     <img src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="img-fluid rounded-circle" alt="About Us Image">
@@ -127,17 +136,17 @@
     <section id="case-studies" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>Our Success Stories</h2>
-                <p class="lead">Discover how we've helped businesses like yours achieve their goals.</p>
+                <h2 data-key="case_studies_title">Our Success Stories</h2>
+                <p class="lead" data-key="case_studies_subtitle">Discover how we've helped businesses like yours achieve their goals.</p>
             </div>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="E-commerce Success">
                         <div class="card-body">
-                            <h5 class="card-title">E-commerce Growth</h5>
-                            <p class="card-text"><strong>Challenge:</strong> A local fashion retailer struggled to transition online. Their sales were low, and their brand had minimal visibility.</p>
-                            <p class="card-text"><strong>Solution:</strong> We launched a targeted social media campaign, optimized their website for conversions, and ran a PPC campaign. The result was a 400% increase in online sales within six months.</p>
+                            <h5 class="card-title" data-key="ecommerce_growth_title">E-commerce Growth</h5>
+                            <p class="card-text" data-key="ecommerce_growth_challenge"><strong>Challenge:</strong> A local fashion retailer struggled to transition online. Their sales were low, and their brand had minimal visibility.</p>
+                            <p class="card-text" data-key="ecommerce_growth_solution"><strong>Solution:</strong> We launched a targeted social media campaign, optimized their website for conversions, and ran a PPC campaign. The result was a 400% increase in online sales within six months.</p>
                         </div>
                     </div>
                 </div>
@@ -145,9 +154,9 @@
                     <div class="card h-100">
                         <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Brand Awareness">
                         <div class="card-body">
-                            <h5 class="card-title">Brand Awareness Campaign</h5>
-                            <p class="card-text"><strong>Challenge:</strong> A new tech startup needed to build brand awareness in the competitive MENA market.</p>
-                            <p class="card-text"><strong>Solution:</strong> We developed a comprehensive content marketing strategy, including blog posts, infographics, and social media content. This resulted in a 150% increase in website traffic and significant media coverage.</p>
+                            <h5 class="card-title" data-key="brand_awareness_title">Brand Awareness Campaign</h5>
+                            <p class="card-text" data-key="brand_awareness_challenge"><strong>Challenge:</strong> A new tech startup needed to build brand awareness in the competitive MENA market.</p>
+                            <p class="card-text" data-key="brand_awareness_solution"><strong>Solution:</strong> We developed a comprehensive content marketing strategy, including blog posts, infographics, and social media content. This resulted in a 150% increase in website traffic and significant media coverage.</p>
                         </div>
                     </div>
                 </div>
@@ -155,9 +164,9 @@
                     <div class="card h-100">
                         <img src="https://images.pexels.com/photos/5439471/pexels-photo-5439471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Lead Generation">
                         <div class="card-body">
-                            <h5 class="card-title">Lead Generation</h5>
-                            <p class="card-text"><strong>Challenge:</strong> A B2B company was struggling to generate qualified leads.</p>
-                            <p class="card-text"><strong>Solution:</strong> We created a high-value e-book and promoted it through a targeted LinkedIn campaign. This generated over 500 qualified leads in just three months.</p>
+                            <h5 class="card-title" data-key="lead_generation_title">Lead Generation</h5>
+                            <p class="card-text" data-key="lead_generation_challenge"><strong>Challenge:</strong> A B2B company was struggling to generate qualified leads.</p>
+                            <p class="card-text" data-key="lead_generation_solution"><strong>Solution:</strong> We created a high-value e-book and promoted it through a targeted LinkedIn campaign. This generated over 500 qualified leads in just three months.</p>
                         </div>
                     </div>
                 </div>
@@ -169,29 +178,29 @@
     <section id="why-choose-us" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>Why Choose Menaverse Online?</h2>
-                <p class="lead">Partner with us for unparalleled expertise and measurable results.</p>
+                <h2 data-key="why_choose_us_title">Why Choose Menaverse Online?</h2>
+                <p class="lead" data-key="why_choose_us_subtitle">Partner with us for unparalleled expertise and measurable results.</p>
             </div>
             <div class="row text-center">
                 <div class="col-md-4 mb-4">
                     <div class="feature-box p-4 rounded shadow-sm h-100">
                         <i class="fas fa-lightbulb fa-3x mb-3 text-primary"></i>
-                        <h4>Innovative Strategies</h4>
-                        <p>We stay ahead of market trends, crafting cutting-edge strategies that deliver real impact.</p>
+                        <h4 data-key="innovative_strategies_title">Innovative Strategies</h4>
+                        <p data-key="innovative_strategies_desc">We stay ahead of market trends, crafting cutting-edge strategies that deliver real impact.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="feature-box p-4 rounded shadow-sm h-100">
                         <i class="fas fa-chart-bar fa-3x mb-3 text-primary"></i>
-                        <h4>Results-Driven Approach</h4>
-                        <p>Our focus is on tangible outcomes. We measure, analyze, and optimize for your success.</p>
+                        <h4 data-key="results_driven_title">Results-Driven Approach</h4>
+                        <p data-key="results_driven_desc">Our focus is on tangible outcomes. We measure, analyze, and optimize for your success.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="feature-box p-4 rounded shadow-sm h-100">
                         <i class="fas fa-handshake fa-3x mb-3 text-primary"></i>
-                        <h4>Client-Centric Service</h4>
-                        <p>Your goals are our priority. We build strong partnerships based on trust and transparency.</p>
+                        <h4 data-key="client_centric_title">Client-Centric Service</h4>
+                        <p data-key="client_centric_desc">Your goals are our priority. We build strong partnerships based on trust and transparency.</p>
                     </div>
                 </div>
             </div>
@@ -202,8 +211,8 @@
     <section id="process" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>Our Process</h2>
-                <p class="lead">A streamlined approach to delivering exceptional results.</p>
+                <h2 data-key="our_process_title">Our Process</h2>
+                <p class="lead" data-key="our_process_subtitle">A streamlined approach to delivering exceptional results.</p>
             </div>
             <div class="row text-center">
                 <div class="col-md-3">
@@ -211,8 +220,8 @@
                         <div class="process-icon mb-3">
                             <i class="fas fa-search fa-3x"></i>
                         </div>
-                        <h4>1. Discovery</h4>
-                        <p>We start by understanding your business, goals, and target audience to lay the foundation for a successful strategy.</p>
+                        <h4 data-key="discovery_title">1. Discovery</h4>
+                        <p data-key="discovery_desc">We start by understanding your business, goals, and target audience to lay the foundation for a successful strategy.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -220,8 +229,8 @@
                         <div class="process-icon mb-3">
                             <i class="fas fa-bullseye fa-3x"></i>
                         </div>
-                        <h4>2. Strategy</h4>
-                        <p>We develop a data-driven marketing plan tailored to your specific needs, focusing on maximizing your ROI.</p>
+                        <h4 data-key="strategy_title">2. Strategy</h4>
+                        <p data-key="strategy_desc">We develop a data-driven marketing plan tailored to your specific needs, focusing on maximizing your ROI.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -229,8 +238,8 @@
                         <div class="process-icon mb-3">
                             <i class="fas fa-cogs fa-3x"></i>
                         </div>
-                        <h4>3. Execution</h4>
-                        <p>Our expert team implements the strategy, launching and managing campaigns with precision and care.</p>
+                        <h4 data-key="execution_title">3. Execution</h4>
+                        <p data-key="execution_desc">Our expert team implements the strategy, launching and managing campaigns with precision and care.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -238,8 +247,8 @@
                         <div class="process-icon mb-3">
                             <i class="fas fa-chart-line fa-3x"></i>
                         </div>
-                        <h4>4. Reporting</h4>
-                        <p>We provide transparent, detailed reports on campaign performance, ensuring you see the value we deliver.</p>
+                        <h4 data-key="reporting_title">4. Reporting</h4>
+                        <p data-key="reporting_desc">We provide transparent, detailed reports on campaign performance, ensuring you see the value we deliver.</p>
                     </div>
                 </div>
             </div>
@@ -249,9 +258,9 @@
     <!-- Call to Action Section -->
     <section id="cta" class="cta-section text-white text-center py-5">
         <div class="container">
-            <h2 class="display-4">Ready to Grow Your Business?</h2>
-            <p class="lead">Let's build a winning strategy for your brand in the MENA region. Contact us today for a free, no-obligation consultation.</p>
-            <a href="#contact" class="btn btn-light btn-lg">Get a Free Consultation</a>
+            <h2 class="display-4" data-key="cta_title">Ready to Grow Your Business?</h2>
+            <p class="lead" data-key="cta_subtitle">Let's build a winning strategy for your brand in the MENA region. Contact us today for a free, no-obligation consultation.</p>
+            <a href="#contact" class="btn btn-light btn-lg" data-key="cta_button">Get a Free Consultation</a>
         </div>
     </section>
 
@@ -259,42 +268,42 @@
     <section id="faq" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>Frequently Asked Questions</h2>
-                <p class="lead">Find answers to common questions about our services.</p>
+                <h2 data-key="faq_title">Frequently Asked Questions</h2>
+                <p class="lead" data-key="faq_subtitle">Find answers to common questions about our services.</p>
             </div>
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-key="faq_q1">
                             What types of businesses do you work with?
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
+                        <div class="accordion-body" data-key="faq_a1">
                             We work with businesses of all sizes, from startups to established enterprises, across various industries in the MENA region. Our solutions are tailored to meet your specific needs.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" data-key="faq_q2">
                             How do you measure success?
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
+                        <div class="accordion-body" data-key="faq_a2">
                             We define success based on your specific goals. We use key performance indicators (KPIs) and provide transparent reporting to track progress and demonstrate the return on your investment.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" data-key="faq_q3">
                             What makes Menaverse Online different?
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
+                        <div class="accordion-body" data-key="faq_a3">
                             Our deep understanding of the MENA market, combined with our innovative strategies and client-centric approach, sets us apart. We focus on building long-term partnerships and delivering measurable results.
                         </div>
                     </div>
@@ -307,16 +316,16 @@
     <section id="testimonials" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>What Our Clients Say</h2>
-                <p class="lead">Real feedback from businesses we've helped grow.</p>
+                <h2 data-key="testimonials_title">What Our Clients Say</h2>
+                <p class="lead" data-key="testimonials_subtitle">Real feedback from businesses we've helped grow.</p>
             </div>
             <div class="testimonial-slider">
                 <div class="testimonial-item">
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-user-circle fa-5x mb-3 text-primary"></i>
-                            <p class="card-text">"Menaverse Online transformed our digital presence. Their understanding of the MENA market is unmatched. Our leads have increased by 200%!"</p>
-                            <footer class="blockquote-footer mt-3">Ahmed Hassan, CEO of <cite title="Source Title">Innovate Egypt</cite></footer>
+                            <p class="card-text" data-key="testimonial1_text">"Menaverse Online transformed our digital presence. Their understanding of the MENA market is unmatched. Our leads have increased by 200%!"</p>
+                            <footer class="blockquote-footer mt-3" data-key="testimonial1_author">Ahmed Hassan, CEO of <cite title="Source Title">Innovate Egypt</cite></footer>
                         </div>
                     </div>
                 </div>
@@ -324,8 +333,8 @@
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-user-circle fa-5x mb-3 text-primary"></i>
-                            <p class="card-text">"The business audit they provided was incredibly detailed and insightful. We now have a clear roadmap for success. Highly recommended."</p>
-                            <footer class="blockquote-footer mt-3">Fatima Al-Sayed, Director at <cite title="Source Title">Nile Ventures</cite></footer>
+                            <p class="card-text" data-key="testimonial2_text">"The business audit they provided was incredibly detailed and insightful. We now have a clear roadmap for success. Highly recommended."</p>
+                            <footer class="blockquote-footer mt-3" data-key="testimonial2_author">Fatima Al-Sayed, Director at <cite title="Source Title">Nile Ventures</cite></footer>
                         </div>
                     </div>
                 </div>
@@ -333,8 +342,8 @@
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-user-circle fa-5x mb-3 text-primary"></i>
-                            <p class="card-text">"From strategy to execution, the team at Menaverse has been a true partner. Their business solutions have streamlined our entire operation."</p>
-                            <footer class="blockquote-footer mt-3">Khalid Ibrahim, Founder of <cite title="Source Title">Cairo Goods</cite></footer>
+                            <p class="card-text" data-key="testimonial3_text">"From strategy to execution, the team at Menaverse has been a true partner. Their business solutions have streamlined our entire operation."</p>
+                            <footer class="blockquote-footer mt-3" data-key="testimonial3_author">Khalid Ibrahim, Founder of <cite title="Source Title">Cairo Goods</cite></footer>
                         </div>
                     </div>
                 </div>
@@ -346,23 +355,23 @@
     <section id="contact" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>Contact Us</h2>
-                <p class="lead">Ready to start your project? Let's talk.</p>
+                <h2 data-key="contact_title">Contact Us</h2>
+                <p class="lead" data-key="contact_subtitle">Ready to start your project? Let's talk.</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <form action="https://formsubmit.co/mo.omar477@gmail.com" method="POST">
                         <div class="mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required data-key="contact_name_placeholder">
                         </div>
                         <div class="mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required data-key="contact_email_placeholder">
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required data-key="contact_message_placeholder"></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="btn btn-primary" data-key="contact_button_text">Send Message</button>
                         </div>
                     </form>
                 </div>
@@ -375,18 +384,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <h5>Menaverse Online</h5>
-                    <p>Your 360° growth partner in the MENA region. We deliver results.</p>
+                    <h5 data-key="footer_title">Menaverse Online</h5>
+                    <p data-key="footer_desc">Your 360° growth partner in the MENA region. We deliver results.</p>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <h5>Contact Us</h5>
+                    <h5 data-key="footer_contact_title">Contact Us</h5>
                     <ul class="list-unstyled">
                         <li><i class="fas fa-envelope me-2"></i> mo.omar477@gmail.com</li>
                         <li><i class="fas fa-phone me-2"></i> +20 123 456 7890</li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <h5>Follow Us</h5>
+                    <h5 data-key="footer_follow_title">Follow Us</h5>
                     <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
                     <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
                     <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
@@ -394,7 +403,7 @@
                 </div>
             </div>
             <div class="text-center border-top pt-3">
-                <p>&copy; 2025 Menaverse Online. All Rights Reserved.</p>
+                <p data-key="footer_copyright">&copy; 2025 Menaverse Online. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -403,5 +412,6 @@
     <script src="front-end.js"></script>
     <script src="custom.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="translations.js"></script>
 </body>
 </html>
