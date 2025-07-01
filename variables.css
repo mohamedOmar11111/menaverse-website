@@ -1,0 +1,70 @@
+:root {
+    --e-global-color-primary: #1173e2;
+    --e-global-color-secondary: #041222;
+    --e-global-color-text: #08272B;
+    --e-global-color-accent: #f2f4f8;
+    --e-global-color-light: #fbfbfb;
+    --color-text: var(--e-global-color-text), #334155;
+    --color-border: #E3E5EB;
+    --color-border-hard: #E3E5EB;
+    --color-white: #ffffff;
+    --color-neutral-transparent: #9f9f9f4d;
+    --color-overlay: #1a1a1a66;
+    --e-global-typography-primary-font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", sans-serif;
+    --e-global-typography-primary-font-weight: 600;
+    --e-global-typography-secondary-font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", sans-serif;
+    --e-global-typography-secondary-font-weight: 600;
+    --e-global-typography-text-font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", sans-serif;
+    --e-global-typography-text-font-weight: 400;
+    --e-global-typography-accent-font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", sans-serif;
+    --e-global-typography-accent-font-weight: 500;
+    --line-height-default: 1.6;
+    --line-height-paragraph: 1.75;
+    --letter-spacing-default: -0.027em;
+    --letter-spacing-small: 0.04em;
+    --font-size-default: 16px;
+    --font-size-paragraphs: 16px;
+    --font-size-main-menu: 16px;
+    --global-border-radius: 12px;
+    --button-border-radius: 30px;
+    --box-shadow: 0px 8px 18px -4px rgba(10, 9, 11, 0.02), 0px 34px 54px -24px rgba(10, 9, 11, 0.04);
+    --global-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --image-transition: all 0.7s cubic-bezier(.2, 1, .22, 1);
+    --container-max-width: 1240px;
+    --listIndent: 2.5em;
+    --listItemSpacing: 0.3em;
+    --content-spacing: 1.5em;
+    --small-content-spacing: 0.75rem;
+    --headings-content-spacing: calc(0.3em + 10px);
+    --column-spacing: 20px;
+    --vertical-spacing: 100px;
+    --titlebar-spacing: 100px;
+    --mobile-spacing: 50px;
+    --sidebar-width: 25%;
+    --sidebar-widgets-spacing: 50px;
+    --grid-columns-gap: 30px;
+    --component-height: 50px;
+    --button-padding: 25px;
+    --header-height: 80px;
+    --block-width: 850px;
+    --logo-height: 32px;
+    --keystone-post-title: 32px;
+    --icon-font-size: 35px;
+    --icon-large-font-size: 45px;
+    --admin-bar: 0px;
+    --transparent-navigation-position: sticky;
+}
+
+@media (max-width:766.98px) {
+     :root {
+        --small-content-spacing: 0.5rem;
+        --sidebar-widgets-spacing: 30px;
+        --component-height: 50px
+    }
+}
+
+@media (min-width:767px) and (max-width:1023.98px) {
+     :root {
+        --block-width: 100%
+    }
+}

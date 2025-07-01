@@ -1,0 +1,37 @@
+:root {
+    --admin-main-color: #1173e2;
+    --admin-secondary-color: #2a2c2f;
+    --admin-main-color-light: #f2f4f8;
+    --admin-main-color-border: #E3E5EB;
+    --admin-main-color-transparent: #f7f7f7;
+    --admin-main-color-heading: #343637;
+    --admin-main-color-text: #334155;
+    --admin-bg-main-color: #1173e2;
+    --admin-bg-secondary-color: #0b59b1;
+    --admin-button-border-radius: 20px;
+    --admin-cards-border-radius: 8px;
+    --admin-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+#adminmenu .toplevel_page_keystone-dashboard .wp-menu-image {
+    background-image: url('../img/thumbnail.svg');
+}
+
+#adminmenu .toplevel_page_keystone-dashboard .wp-menu-name::before {
+    content: 'Zenix';
+}
+
+.wp-admin #adminmenu .toplevel_page_keystone-dashboard {
+    display: list-item;
+}
+
+.keystone-welcome-panel .keystone-theme-version,
+.ksadmin-documentation a .cat-icon,
+.ksadmin-panel-column .dashboard-icon {
+    color: var(--admin-main-color-heading);
+}
+
+.ksadmin-import .ocdi__gl-item-image-container {
+    max-height: 250px;
+    aspect-ratio: inherit;
+}
