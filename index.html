@@ -107,6 +107,17 @@
             letter-spacing: 0.3em;
             font-weight: 900;
         }
+
+        #mobile-menu {
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            opacity: 0;
+            pointer-events: none;
+            backdrop-filter: blur(20px);
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body class="font-english overflow-x-hidden">
@@ -131,13 +142,31 @@
                 </div>
             </nav>
 
-            <button id="hamburger-btn" class="md:hidden text-white">
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/98 z-[60] flex flex-col p-12">
+        <div class="flex justify-between items-center mb-20">
+            <button id="close-menu-btn" class="text-white ml-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-10 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-10 text-4xl font-black">
+            <a href="#home" class="hover:text-gray-500 transition tracking-tighter uppercase">Home</a>
+            <a href="#about" class="hover:text-gray-500 transition tracking-tighter uppercase">About</a>
+            <a href="#services" class="hover:text-gray-500 transition tracking-tighter uppercase">Services</a>
+            <a href="#work" class="hover:text-gray-500 transition tracking-tighter uppercase">Case Studies</a>
+            <div id="lang-toggle-mobile" class="text-xs font-mono mt-16 text-gray-600 border-t border-white/5 pt-12 tracking-[0.3em] uppercase cursor-pointer">SWITCH TO ARABIC</div>
+        </nav>
+    </div>
 
     <main>
         <!-- Hero Section -->
@@ -183,37 +212,73 @@
             </div>
         </section>
 
-        <!-- Services Section -->
+        <!-- Capabilities Section (FULL ELABORATION) -->
         <section id="services" class="py-40 bg-[#030303]">
             <div class="container mx-auto px-6">
                 <div class="mb-32 text-center max-w-4xl mx-auto">
                     <div class="case-study-badge mb-6" id="svc-tag">Strategic Toolkit</div>
                     <h2 id="services-title" class="text-5xl md:text-8xl font-black text-white mb-8 uppercase tracking-tighter leading-none">Capabilities</h2>
-                    <p id="services-desc" class="text-gray-500 text-xl">Engineering market dominance through three core tactical wings.</p>
+                    <p id="services-desc" class="text-gray-500 text-xl">Engineering market dominance through six core tactical wings.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- SEO Strike -->
                     <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg></div>
                         <h3 id="svc-seo-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">SEO Strike</h3>
-                        <p id="svc-seo-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Dominating organic landscapes via technical fortification.</p>
+                        <p id="svc-seo-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Advanced semantic architecture and technical fortification to own high-intent organic landscapes.</p>
                         <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-seo-list">
                             <li>• Authority Audits</li><li>• Topical Moats</li><li>• Technical SEO</li>
                         </ul>
                     </div>
                     
+                    <!-- Social Authority -->
                     <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" stroke-width="2"/></svg></div>
                         <h3 id="svc-smm-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Social Authority</h3>
-                        <p id="svc-smm-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Transforming brands into industry references via viral ecosystems.</p>
+                        <p id="svc-smm-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Engineering viral ecosystems that transform brands into industry authorities through psychology-led content.</p>
                         <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-smm-list">
                             <li>• Viral Scripting</li><li>• Community Scaling</li><li>• Influencer Blitz</li>
                         </ul>
                     </div>
 
+                    <!-- Paid Acquisition -->
                     <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg></div>
                         <h3 id="svc-ppc-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Paid Acquisition</h3>
-                        <p id="svc-ppc-desc" class="text-gray-400 text-sm leading-relaxed mb-8">High-velocity funnels optimized for aggressive ROI and scale.</p>
+                        <p id="svc-ppc-desc" class="text-gray-400 text-sm leading-relaxed mb-8">High-velocity advertising funnels built on behavioral funnels and real-time data for aggressive scaling.</p>
                         <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-ppc-list">
-                            <li>• Funnel Arbitrage</li><li>• Ad Vampire Logic</li><li>• Scale Management</li>
+                            <li>• Funnel Arbitrage</li><li>• Ad Vampire Logic</li><li>• Precision Scaling</li>
+                        </ul>
+                    </div>
+
+                    <!-- Media Production -->
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-media-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Media Production</h3>
+                        <p id="svc-media-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Cinematic visual storytelling and high-status creative production designed for elite market positioning.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-media-list">
+                            <li>• Brand Films</li><li>• Social Content</li><li>• Event Coverage</li>
+                        </ul>
+                    </div>
+
+                    <!-- Growth Auditing -->
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-audit-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Growth Auditing</h3>
+                        <p id="svc-audit-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Deep-tissue digital forensics to identify hidden revenue leaks and uncaptured scaling opportunities.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-audit-list">
+                            <li>• UX/UI Forensics</li><li>• Revenue Analysis</li><li>• Competitor Recon</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bespoke Engines -->
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-bespoke-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Bespoke Engines</h3>
+                        <p id="svc-bespoke-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Custom growth architectures and automated systems built for mission-critical objectives.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-bespoke-list">
+                            <li>• AI Integrations</li><li>• Custom Funnels</li><li>• Workflow SOPs</li>
                         </ul>
                     </div>
                 </div>
@@ -259,18 +324,18 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="py-40 relative overflow-hidden">
+        <section id="contact" class="py-40 relative">
             <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
                 <h2 id="contact-title" class="text-5xl md:text-9xl font-black text-white mb-10 uppercase tracking-tighter">Initiate</h2>
                 <div class="noir-card p-16 rounded-[4rem]">
                     <p id="contact-desc" class="text-gray-400 mb-16 text-xl">MenaVerse Intelligence is ready for deployment. Connect with our tactical team.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left mb-16">
                         <div class="border-b border-white/5 pb-8">
-                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.5em] mb-4 block">Official</span>
+                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.5em] mb-4 block">Official Channel</span>
                             <span class="text-white font-black text-2xl">info@menaverse.online</span>
                         </div>
                         <div class="border-b border-white/5 pb-8">
-                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.5em] mb-4 block">Support</span>
+                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.5em] mb-4 block">Support Line</span>
                             <span class="text-white font-black text-2xl">+201558058813</span>
                         </div>
                     </div>
@@ -298,13 +363,19 @@
                 aboutTag: "Brand Identity", aboutTitle: "MenaVerse",
                 aboutP1: "Based in the heart of Cairo, <strong>MenaVerse</strong> is a specialized digital growth engine. We operate at the intersection of behavioral psychology and advanced data engineering.",
                 aboutP2: "Our methodology is built on transparency, velocity, and undeniable market ROI. We transform regional businesses into global benchmarks.",
-                svcTag: "Strategic Toolkit", servicesTitle: "Capabilities", servicesDesc: "Engineering market dominance through three core tactical wings.",
-                svcSeoTitle: "SEO Strike", svcSeoDesc: "Dominating organic landscapes via technical fortification.",
+                svcTag: "Strategic Toolkit", servicesTitle: "Capabilities", servicesDesc: "Engineering market dominance through six core tactical wings.",
+                svcSeoTitle: "SEO Strike", svcSeoDesc: "Advanced semantic architecture and technical fortification to own high-intent organic landscapes.",
                 svcSeoList: "<li>• Authority Audits</li><li>• Topical Moats</li><li>• Technical SEO</li>",
-                svcSmmTitle: "Social Authority", svcSmmDesc: "Transforming brands into industry references via viral ecosystems.",
+                svcSmmTitle: "Social Authority", svcSmmDesc: "Engineering viral ecosystems that transform brands into industry authorities through psychology-led content.",
                 svcSmmList: "<li>• Viral Scripting</li><li>• Community Scaling</li><li>• Influencer Blitz</li>",
-                svcPpcTitle: "Paid Acquisition", svcPpcDesc: "High-velocity funnels optimized for aggressive ROI and scale.",
-                svcPpcList: "<li>• Funnel Arbitrage</li><li>• Ad Vampire Logic</li><li>• Scale Management</li>",
+                svcPpcTitle: "Paid Acquisition", svcPpcDesc: "High-velocity advertising funnels built on behavioral funnels and real-time data for aggressive scaling.",
+                svcPpcList: "<li>• Funnel Arbitrage</li><li>• Ad Vampire Logic</li><li>• Precision Scaling</li>",
+                svcMediaTitle: "Media Production", svcMediaDesc: "Cinematic visual storytelling and high-status creative production designed for elite market positioning.",
+                svcMediaList: "<li>• Brand Films</li><li>• Social Content</li><li>• Event Coverage</li>",
+                svcAuditTitle: "Growth Auditing", svcAuditDesc: "Deep-tissue digital forensics to identify hidden revenue leaks and uncaptured scaling opportunities.",
+                svcAuditList: "<li>• UX/UI Forensics</li><li>• Revenue Analysis</li><li>• Competitor Recon</li>",
+                svcBespokeTitle: "Bespoke Engines", svcBespokeDesc: "Custom growth architectures and automated systems built for mission-critical objectives.",
+                svcBespokeList: "<li>• AI Integrations</li><li>• Custom Funnels</li><li>• Workflow SOPs</li>",
                 workTag: "Mission Success", workTitle: "Case Studies",
                 contactTitle: "Initiate", contactDesc: "MenaVerse Intelligence is ready for deployment. Connect with our tactical team.",
                 footer: "&copy; 2024 MENAVERSE ONLINE. ALL RIGHTS RESERVED.",
@@ -318,13 +389,19 @@
                 aboutTag: "هوية العلامة", aboutTitle: "مينا فيرس",
                 aboutP1: "مينا فيرس هي محرك متخصص في النمو الرقمي، مقرها في قلب القاهرة. نحن نعمل في نقطة التقاء علم النفس السلوكي وهندسة البيانات المتقدمة.",
                 aboutP2: "منهجيتنا مبنية على الشفافية والسرعة وعائد استثمار حقيقي. نحن نحول الشركات الإقليمية إلى معايير عالمية.",
-                svcTag: "الأدوات الإستراتيجية", servicesTitle: "القدرات", servicesDesc: "هندسة الهيمنة على السوق من خلال ثلاثة أجنحة تكتيكية أساسية.",
-                svcSeoTitle: "ضربة الـ SEO", svcSeoDesc: "السيطرة على المشهد العضوي من خلال التحصين التقني.",
+                svcTag: "الأدوات الإستراتيجية", servicesTitle: "القدرات", servicesDesc: "هندسة الهيمنة على السوق من خلال ستة أجنحة تكتيكية أساسية.",
+                svcSeoTitle: "ضربة الـ SEO", svcSeoDesc: "هندسة دلالية متقدمة وتحصين تقني لامتلاك مشهد البحث ذو النية العالية.",
                 svcSeoList: "<li>• تدقيق السلطة</li><li>• الخنادق الرقمية</li><li>• الـ SEO التقني</li>",
-                svcSmmTitle: "السلطة الاجتماعية", svcSmmDesc: "تحويل العلامات التجارية إلى مراجع في صناعتها عبر أنظمة فيروسية.",
+                svcSmmTitle: "السلطة الاجتماعية", svcSmmDesc: "هندسة أنظمة اجتماعية فيروسية تحول العلامات التجارية إلى مراجع في صناعتها عبر محتوى مدروس نفسياً.",
                 svcSmmList: "<li>• السيناريو الفيروسي</li><li>• توسيع المجتمعات</li><li>• حملات المؤثرين</li>",
-                svcPpcTitle: "الاستحواذ المدفوع", svcPpcDesc: "قنوات إعلانية عالية السرعة محسنة لتحقيق أقصى عائد على الاستثمار والتوسع.",
-                svcPpcList: "<li>• مراجحة القنوات</li><li>• تكتيكات الاستحواذ</li><li>• إدارة التوسع</li>",
+                svcPpcTitle: "الاستحواذ المدفوع", svcPpcDesc: "قنوات إعلانية عالية السرعة مبنية على مسارات سلوكية وبيانات فورية للتوسع القوي.",
+                svcPpcList: "<li>• مراجحة القنوات</li><li>• تكتيكات الاستحواذ</li><li>• توسيع النطاق بدقة</li>",
+                svcMediaTitle: "الإنتاج الإعلامي", svcMediaDesc: "سرد قصصي مرئي سينمائي وإنتاج إبداعي رفيع المستوى مصمم للتموضع النخبوي في السوق.",
+                svcMediaList: "<li>• أفلام العلامة</li><li>• محتوى اجتماعي</li><li>• تغطية الفعاليات</li>",
+                svcAuditTitle: "تدقيق النمو", svcAuditDesc: "تحليل رقمي عميق لتحديد تسريبات الإيرادات الخفية وفرص التوسع غير المستغلة.",
+                svcAuditList: "<li>• الطب الشرعي للـ UX</li><li>• تحليل الإيرادات</li><li>• استطلاع المنافسين</li>",
+                svcBespokeTitle: "محركات مخصصة", svcBespokeDesc: "هياكل نمو مخصصة وأنظمة مؤتمتة مبنية للأهداف الحرجة للمهمة.",
+                svcBespokeList: "<li>• تكامل الذكاء الاصطناعي</li><li>• قنوات مخصصة</li><li>• أدلة العمل SOPs</li>",
                 workTag: "نجاح المهمة", workTitle: "دراسات الحالة",
                 contactTitle: "ابدأ الآن", contactDesc: "استخبارات مينا فيرس جاهزة للنشر. تواصل مع فريقنا التكتيكي.",
                 footer: "&copy; 2024 مينا فيرس أونلاين. جميع الحقوق محفوظة.",
@@ -334,7 +411,9 @@
 
         let currentLang = 'en';
         const langToggle = document.getElementById('lang-toggle');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
         const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
         function updateLanguage() {
@@ -343,7 +422,7 @@
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.body.className = currentLang === 'ar' ? 'font-arabic overflow-x-hidden' : 'font-english overflow-x-hidden';
             
-            const ids = ['nav-brand', 'nav-home', 'nav-about', 'nav-services', 'nav-work', 'btn-quote', 'hero-title', 'hero-desc', 'hero-btn-primary', 'hero-btn-secondary', 'about-tag', 'about-title', 'about-p1', 'about-p2', 'svc-tag', 'services-title', 'services-desc', 'svc-seo-title', 'svc-seo-desc', 'svc-seo-list', 'svc-smm-title', 'svc-smm-desc', 'svc-smm-list', 'svc-ppc-title', 'svc-ppc-desc', 'svc-ppc-list', 'work-tag', 'work-title', 'contact-title', 'contact-desc', 'footer-text'];
+            const ids = ['nav-brand', 'nav-home', 'nav-about', 'nav-services', 'nav-work', 'btn-quote', 'hero-title', 'hero-desc', 'hero-btn-primary', 'hero-btn-secondary', 'about-tag', 'about-title', 'about-p1', 'about-p2', 'svc-tag', 'services-title', 'services-desc', 'svc-seo-title', 'svc-seo-desc', 'svc-seo-list', 'svc-smm-title', 'svc-smm-desc', 'svc-smm-list', 'svc-ppc-title', 'svc-ppc-desc', 'svc-ppc-list', 'svc-media-title', 'svc-media-desc', 'svc-media-list', 'svc-audit-title', 'svc-audit-desc', 'svc-audit-list', 'svc-bespoke-title', 'svc-bespoke-desc', 'svc-bespoke-list', 'work-tag', 'work-title', 'contact-title', 'contact-desc', 'footer-text'];
 
             ids.forEach(id => {
                 const el = document.getElementById(id);
@@ -353,10 +432,13 @@
                 }
             });
             langToggle.innerText = currentLang === 'en' ? 'AR' : 'EN';
+            langToggleMobile.innerText = t.switchLang;
         }
 
         langToggle.addEventListener('click', () => { currentLang = currentLang === 'en' ? 'ar' : 'en'; updateLanguage(); });
+        langToggleMobile.addEventListener('click', () => { currentLang = currentLang === 'en' ? 'ar' : 'en'; updateLanguage(); mobileMenu.classList.remove('active'); });
         hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
         
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal'); }); }, { threshold: 0.1 });
         document.querySelectorAll('section, .reveal').forEach(el => observer.observe(el));
