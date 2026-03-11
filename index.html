@@ -1,974 +1,390 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MenaVerse | 360 Marketing Agency in Egypt</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MenaVerse Online | Your Digital Growth Partner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#000000',
-                        secondary: '#ffffff',
-                        dark: '#000000',
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
+        :root {
+            --bg-noir: #050505;
+            --surface-noir: #0a0a0a;
+            --border-noir: #1a1a1a;
+            --accent-noir: #ffffff;
+        }
+
+        .font-arabic { font-family: 'Noto Sans Arabic', sans-serif; }
+        .font-english { font-family: 'Inter', sans-serif; }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #ffffff;
+            background-color: var(--bg-noir);
+            color: #e0e0e0;
+            transition: all 0.3s ease;
         }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(168, 85, 247, 0.9) 100%);
+
+        .glass-header {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-noir);
         }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        .noir-card {
+            background: var(--surface-noir);
+            border: 1px solid var(--border-noir);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        
-        .nav-link {
-            position: relative;
+
+        .noir-card:hover {
+            border-color: #444;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
-        
-        .nav-link::after {
-            content: '';
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #888888);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .btn-noir {
+            background: white;
+            color: black;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-noir:hover {
+            background: #e0e0e0;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { animation: fadeInUp 0.8s ease forwards; }
+
+        .lang-switcher {
+            cursor: pointer;
+            padding: 4px 12px;
+            border: 1px solid var(--border-noir);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .lang-switcher:hover {
+            background: white;
+            color: black;
+        }
+
+        .hero-mesh {
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
+            top: 0;
             left: 0;
-            background-color: #a855f7;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
             width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
+            z-index: -1;
         }
-        
-        .testimonial-card {
-            transition: all 0.3s ease;
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+            transform: translateX(100%);
         }
-        
-        .testimonial-card:hover {
-            transform: scale(1.03);
+        #mobile-menu.active {
+            transform: translateX(0);
         }
-        
-        .stats-item {
-            position: relative;
+        [dir="rtl"] #mobile-menu {
+            transform: translateX(-100%);
         }
-        
-        .stats-item::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 20%;
-            height: 60%;
-            width: 1px;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .stats-item:last-child::after {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .stats-item::after {
-                display: none;
-            }
-        }
-        
-        .service-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.1);
-            color: #a855f7;
-        }
-        
-        .hero-image {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
+        [dir="rtl"] #mobile-menu.active {
+            transform: translateX(0);
         }
     </style>
 </head>
-<body class="bg-white">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <a href="#" class="flex items-center">
-                        <span class="text-xl font-bold text-dark">MenaVerse</span>
-                    </a>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-dark hover:text-primary font-medium">Home</a>
-                    <a href="#services" class="nav-link text-dark hover:text-primary font-medium">Services</a>
-                    <a href="#about" class="nav-link text-dark hover:text-primary font-medium">About</a>
-                    <a href="#portfolio" class="nav-link text-dark hover:text-primary font-medium">Portfolio</a>
-                    <a href="#testimonials" class="nav-link text-dark hover:text-primary font-medium">Testimonials</a>
-                    <a href="#contact" class="nav-link text-dark hover:text-primary font-medium">Contact</a>
-                </div>
-                
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-dark focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+<body class="font-english overflow-x-hidden">
+    <div class="hero-mesh"></div>
+
+    <!-- Header -->
+    <header class="glass-header sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center text-xl font-bold tracking-tighter">
+                <img src="Menaverse.png" alt="Logo" class="h-10 mr-3 rounded" />
+                <span id="nav-brand">MENAVERSE</span>
+            </a>
             
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
-                <a href="#home" class="block py-2 text-dark hover:text-primary font-medium">Home</a>
-                <a href="#services" class="block py-2 text-dark hover:text-primary font-medium">Services</a>
-                <a href="#about" class="block py-2 text-dark hover:text-primary font-medium">About</a>
-                <a href="#portfolio" class="block py-2 text-dark hover:text-primary font-medium">Portfolio</a>
-                <a href="#testimonials" class="block py-2 text-dark hover:text-primary font-medium">Testimonials</a>
-                <a href="#contact" class="block py-2 text-dark hover:text-primary font-medium">Contact</a>
-            </div>
-        </div>
-    </nav>
+            <nav class="hidden md:flex items-center space-x-8">
+                <ul class="flex space-x-8 text-sm font-medium text-gray-400">
+                    <li><a href="#home" id="nav-home" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#about" id="nav-about" class="hover:text-white transition">About</a></li>
+                    <li><a href="#services" id="nav-services" class="hover:text-white transition">Services</a></li>
+                    <li><a href="#work" id="nav-work" class="hover:text-white transition">Case Studies</a></li>
+                </ul>
+                <div class="flex items-center space-x-4 ml-8">
+                    <div id="lang-toggle" class="lang-switcher">AR</div>
+                    <a href="#contact" id="btn-quote" class="btn-noir px-6 py-2 rounded-full text-sm">GET A QUOTE</a>
+                </div>
+            </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative pt-28 pb-20 md:pt-32 md:pb-24 overflow-hidden hero-gradient">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 text-white">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        Transform Your Brand with 360° Marketing
-                    </h1>
-                    <p class="text-lg md:text-xl opacity-90 mb-8">
-                        Egypt's premier marketing agency delivering innovative strategies and measurable results for businesses of all sizes.
-                    </p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact" class="bg-white text-primary hover:bg-gray-100 font-medium py-3 px-8 rounded-full transition duration-300 text-center">
-                            Get Started
-                        </a>
-                        <a href="#services" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-medium py-3 px-8 rounded-full transition duration-300 text-center">
-                            Our Services
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="hero-image relative">
-                        <!-- Marketing Dashboard Illustration -->
-                        <svg class="w-full max-w-lg" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Main Dashboard Frame -->
-                            <rect x="50" y="50" width="500" height="350" rx="10" fill="white" stroke="#e5e7eb" stroke-width="2"/>
-                            
-                            <!-- Header -->
-                            <rect x="50" y="50" width="500" height="60" rx="10" fill="#f3f4f6"/>
-                            <circle cx="90" cy="80" r="15" fill="#4f46e5"/>
-                            <rect x="120" y="70" width="120" height="20" rx="5" fill="#d1d5db"/>
-                            <rect x="400" y="70" width="100" height="20" rx="5" fill="#d1d5db"/>
-                            
-                            <!-- Sidebar -->
-                            <rect x="50" y="110" width="100" height="290" fill="#f9fafb"/>
-                            <rect x="70" y="140" width="60" height="10" rx="2" fill="#4f46e5"/>
-                            <rect x="70" y="170" width="60" height="10" rx="2" fill="#d1d5db"/>
-                            <rect x="70" y="200" width="60" height="10" rx="2" fill="#d1d5db"/>
-                            <rect x="70" y="230" width="60" height="10" rx="2" fill="#d1d5db"/>
-                            <rect x="70" y="260" width="60" height="10" rx="2" fill="#d1d5db"/>
-                            <rect x="70" y="290" width="60" height="10" rx="2" fill="#d1d5db"/>
-                            
-                            <!-- Main Content Area -->
-                            <!-- Stats Cards -->
-                            <rect x="170" y="130" width="110" height="80" rx="5" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
-                            <rect x="180" y="145" width="60" height="10" rx="2" fill="#6366f1"/>
-                            <rect x="180" y="165" width="90" height="15" rx="2" fill="#4f46e5"/>
-                            <rect x="180" y="190" width="40" height="10" rx="2" fill="#818cf8"/>
-                            
-                            <rect x="290" y="130" width="110" height="80" rx="5" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1"/>
-                            <rect x="300" y="145" width="60" height="10" rx="2" fill="#c084fc"/>
-                            <rect x="300" y="165" width="90" height="15" rx="2" fill="#a855f7"/>
-                            <rect x="300" y="190" width="40" height="10" rx="2" fill="#d8b4fe"/>
-                            
-                            <rect x="410" y="130" width="110" height="80" rx="5" fill="#ffedd5" stroke="#fed7aa" stroke-width="1"/>
-                            <rect x="420" y="145" width="60" height="10" rx="2" fill="#f97316"/>
-                            <rect x="420" y="165" width="90" height="15" rx="2" fill="#ea580c"/>
-                            <rect x="420" y="190" width="40" height="10" rx="2" fill="#fb923c"/>
-                            
-                            <!-- Chart -->
-                            <rect x="170" y="230" width="230" height="150" rx="5" fill="white" stroke="#e5e7eb" stroke-width="1"/>
-                            <rect x="180" y="245" width="80" height="15" rx="2" fill="#1e293b"/>
-                            
-                            <!-- Chart Lines -->
-                            <line x1="190" y1="350" x2="380" y2="350" stroke="#e5e7eb" stroke-width="1"/>
-                            <line x1="190" y1="320" x2="380" y2="320" stroke="#e5e7eb" stroke-width="1"/>
-                            <line x1="190" y1="290" x2="380" y2="290" stroke="#e5e7eb" stroke-width="1"/>
-                            <line x1="190" y1="260" x2="380" y2="260" stroke="#e5e7eb" stroke-width="1"/>
-                            
-                            <!-- Chart Data -->
-                            <path d="M190,330 L220,310 L250,320 L280,280 L310,290 L340,270 L370,290" stroke="#4f46e5" stroke-width="3" fill="none"/>
-                            <circle cx="190" cy="330" r="4" fill="#4f46e5"/>
-                            <circle cx="220" cy="310" r="4" fill="#4f46e5"/>
-                            <circle cx="250" cy="320" r="4" fill="#4f46e5"/>
-                            <circle cx="280" cy="280" r="4" fill="#4f46e5"/>
-                            <circle cx="310" cy="290" r="4" fill="#4f46e5"/>
-                            <circle cx="340" cy="270" r="4" fill="#4f46e5"/>
-                            <circle cx="370" cy="290" r="4" fill="#4f46e5"/>
-                            
-                            <!-- Side Panel -->
-                            <rect x="410" y="230" width="110" height="150" rx="5" fill="white" stroke="#e5e7eb" stroke-width="1"/>
-                            <rect x="420" y="245" width="90" height="10" rx="2" fill="#1e293b"/>
-                            <rect x="420" y="265" width="90" height="5" rx="1" fill="#d1d5db"/>
-                            <rect x="420" y="280" width="90" height="5" rx="1" fill="#d1d5db"/>
-                            <rect x="420" y="295" width="90" height="5" rx="1" fill="#d1d5db"/>
-                            <rect x="420" y="310" width="90" height="5" rx="1" fill="#d1d5db"/>
-                            <rect x="420" y="325" width="90" height="5" rx="1" fill="#d1d5db"/>
-                            <rect x="420" y="340" width="90" height="5" rx="1" fill="#d1d5db"/>
-                            <rect x="420" y="355" width="90" height="5" rx="1" fill="#d1d5db"/>
-                            
-                            <!-- Decorative Elements -->
-                            <circle cx="500" cy="80" r="10" fill="#a855f7"/>
-                            <circle cx="530" cy="80" r="10" fill="#f97316"/>
-                            
-                            <!-- Floating Elements -->
-                            <circle cx="100" cy="30" r="20" fill="#4f46e5" opacity="0.2"/>
-                            <circle cx="520" cy="420" r="25" fill="#a855f7" opacity="0.2"/>
-                            <circle cx="30" cy="350" r="15" fill="#f97316" opacity="0.2"/>
-                            
-                            <!-- Marketing Icons -->
-                            <circle cx="480" cy="30" r="15" fill="#4f46e5" opacity="0.7"/>
-                            <text x="480" y="35" font-family="Arial" font-size="12" fill="white" text-anchor="middle">📊</text>
-                            
-                            <circle cx="520" cy="30" r="15" fill="#a855f7" opacity="0.7"/>
-                            <text x="520" y="35" font-family="Arial" font-size="12" fill="white" text-anchor="middle">📈</text>
-                            
-                            <circle cx="560" cy="30" r="15" fill="#f97316" opacity="0.7"/>
-                            <text x="560" y="35" font-family="Arial" font-size="12" fill="white" text-anchor="middle">🚀</text>
-                        </svg>
-                        
-                        <!-- Floating Elements -->
-                        <div class="absolute -top-10 -right-10 w-20 h-20 bg-indigo-500 rounded-full opacity-20"></div>
-                        <div class="absolute -bottom-5 -left-5 w-16 h-16 bg-purple-500 rounded-full opacity-20"></div>
-                        <div class="absolute top-1/2 -right-8 w-12 h-12 bg-yellow-500 rounded-full opacity-20"></div>
-                    </div>
-                </div>
-            </div>
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
         </div>
-    </section>
+    </header>
 
-    <!-- Stats Section -->
-    <section class="bg-dark py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4">
-                <div class="stats-item text-center p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-2">100+</div>
-                    <div class="text-gray-300">Happy Clients</div>
-                </div>
-                <div class="stats-item text-center p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-2">250+</div>
-                    <div class="text-gray-300">Projects Completed</div>
-                </div>
-                <div class="stats-item text-center p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-2">15+</div>
-                    <div class="text-gray-300">Team Experts</div>
-                </div>
-                <div class="stats-item text-center p-4">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-2">3+</div>
-                    <div class="text-gray-300">Years Experience</div>
-                </div>
-            </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-[60] flex flex-col p-10">
+        <div class="flex justify-between items-center mb-16">
+            <span class="text-xs font-mono tracking-widest text-gray-500 uppercase">Menu</span>
+            <button id="close-menu-btn" class="text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Services</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">We offer comprehensive marketing solutions tailored to your business needs, helping you reach your target audience and achieve your goals.</p>
+        <nav class="flex flex-col space-y-8 text-3xl font-bold">
+            <a href="#home" id="m-nav-home" class="hover:text-gray-400 transition">Home</a>
+            <a href="#about" id="m-nav-about" class="hover:text-gray-400 transition">About</a>
+            <a href="#services" id="m-nav-services" class="hover:text-gray-400 transition">Services</a>
+            <a href="#work" id="m-nav-work" class="hover:text-gray-400 transition">Case Studies</a>
+            <div class="pt-10">
+                <a href="#contact" id="m-btn-quote" class="btn-noir px-10 py-4 rounded-full text-lg inline-block">GET A QUOTE</a>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
-                    <div class="service-icon text-5xl text-primary mb-6">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Digital Marketing</h3>
-                    <p class="text-gray-600 mb-6">Strategic campaigns across digital platforms to increase brand awareness and drive conversions.</p>
-                    <a href="#contact" class="text-secondary font-medium flex items-center">
-                        Learn More
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
-                    <div class="service-icon text-5xl text-primary mb-6">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Web Development</h3>
-                    <p class="text-gray-600 mb-6">Custom website design and development that reflects your brand identity and engages visitors.</p>
-                    <a href="#contact" class="text-secondary font-medium flex items-center">
-                        Learn More
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
-                    <div class="service-icon text-5xl text-primary mb-6">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">SEO Optimization</h3>
-                    <p class="text-gray-600 mb-6">Improve your search engine rankings and drive organic traffic to your website with our SEO expertise.</p>
-                    <a href="#contact" class="text-secondary font-medium flex items-center">
-                        Learn More
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
-                    <div class="service-icon text-5xl text-primary mb-6">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Content Creation</h3>
-                    <p class="text-gray-600 mb-6">High-quality content that tells your brand story and resonates with your target audience.</p>
-                    <a href="#contact" class="text-secondary font-medium flex items-center">
-                        Learn More
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
-                    <div class="service-icon text-5xl text-primary mb-6">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Social Media Management</h3>
-                    <p class="text-gray-600 mb-6">Strategic social media campaigns to build community, increase engagement, and drive business growth.</p>
-                    <a href="#contact" class="text-secondary font-medium flex items-center">
-                        Learn More
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
-                    <div class="service-icon text-5xl text-primary mb-6">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-4">Branding & Identity</h3>
-                    <p class="text-gray-600 mb-6">Develop a strong brand identity that differentiates your business and connects with your audience.</p>
-                    <a href="#contact" class="text-secondary font-medium flex items-center">
-                        Learn More
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
+            <div id="lang-toggle-mobile" class="text-sm font-mono mt-10 text-gray-500 border-t border-white/5 pt-10">SWITCH TO ARABIC</div>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center px-6">
+            <div class="max-w-4xl reveal">
+                <h1 id="hero-title" class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+                    YOUR DIGITAL <span class="text-gradient">GROWTH</span> PARTNER
+                </h1>
+                <p id="hero-desc" class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Empowering businesses across the MENA region with high-status digital strategies and innovative solutions.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#services" id="hero-btn-primary" class="btn-noir px-10 py-4 rounded-full text-lg">EXPLORE SERVICES</a>
+                    <a href="#contact" id="hero-btn-secondary" class="border border-white/20 hover:bg-white/5 text-white px-10 py-4 rounded-full text-lg transition">TALK TO US</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <div class="relative">
-                        <div class="bg-primary rounded-lg w-64 h-64 md:w-80 md:h-80 relative z-10">
-                            <svg class="w-full h-full text-white opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="currentColor" d="M47.7,-57.2C59.9,-45.8,66.8,-29.1,68.7,-12.1C70.6,4.9,67.4,22.2,57.8,34.8C48.3,47.5,32.4,55.4,15.8,60.6C-0.9,65.7,-18.2,68,-32.4,62.3C-46.6,56.6,-57.8,42.8,-65.1,26.8C-72.4,10.7,-75.8,-7.7,-70.3,-23.1C-64.8,-38.5,-50.3,-51,-35.2,-61.3C-20.1,-71.7,-4.3,-80,11.2,-77.8C26.8,-75.6,35.5,-68.7,47.7,-57.2Z" transform="translate(100 100)" />
-                            </svg>
-                        </div>
-                        <div class="absolute top-10 left-10 bg-white rounded-lg shadow-xl p-4 z-20">
-                            <svg class="w-56 h-56 md:w-72 md:h-72" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#4f46e5" d="M47.7,-57.2C59.9,-45.8,66.8,-29.1,68.7,-12.1C70.6,4.9,67.4,22.2,57.8,34.8C48.3,47.5,32.4,55.4,15.8,60.6C-0.9,65.7,-18.2,68,-32.4,62.3C-46.6,56.6,-57.8,42.8,-65.1,26.8C-72.4,10.7,-75.8,-7.7,-70.3,-23.1C-64.8,-38.5,-50.3,-51,-35.2,-61.3C-20.1,-71.7,-4.3,-80,11.2,-77.8C26.8,-75.6,35.5,-68.7,47.7,-57.2Z" transform="translate(100 100)" />
-                                <text x="100" y="100" font-family="Arial" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">MenaVerse</text>
-                                <text x="100" y="130" font-family="Arial" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">Est. 2023</text>
-                            </svg>
-                        </div>
-                    </div>
+        <!-- Services Section -->
+        <section id="services" class="py-32 bg-[#080808]">
+            <div class="container mx-auto px-6">
+                <div class="mb-20 text-center">
+                    <h2 id="services-title" class="text-3xl md:text-5xl font-bold text-white mb-4">OUR CAPABILITIES</h2>
+                    <p id="services-desc" class="text-gray-500">Precision execution across the digital spectrum.</p>
                 </div>
                 
-                <div class="md:w-1/2 md:pl-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">About MenaVerse</h2>
-                    <p class="text-gray-600 mb-6">
-                        MenaVerse is Egypt's leading 360° marketing agency, dedicated to helping businesses grow through innovative marketing strategies and creative solutions. With our team of experienced professionals, we deliver exceptional results that exceed client expectations.
-                    </p>
-                    <p class="text-gray-600 mb-8">
-                        Founded in 2018, we've successfully completed over 250 projects for clients across various industries. Our mission is to transform brands through strategic marketing that drives real business growth.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <h3 class="text-lg font-semibold text-dark mb-2">Our Mission</h3>
-                            <p class="text-gray-600">To empower businesses with innovative marketing solutions that drive growth and success.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- SEO -->
+                    <div class="noir-card p-10 rounded-2xl">
+                        <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-dark mb-2">Our Vision</h3>
-                            <p class="text-gray-600">To be the most trusted marketing partner for businesses across the MENA region.</p>
-                        </div>
+                        <h3 id="svc-seo-title" class="text-2xl font-bold text-white mb-4">SEO</h3>
+                        <p id="svc-seo-desc" class="text-gray-400 leading-relaxed mb-6">Dominating search landscapes and capturing high-intent traffic through technical mastery.</p>
+                        <a href="#" class="text-sm font-bold border-b border-white pb-1 hover:text-gray-300 transition uppercase tracking-widest">Learn More</a>
                     </div>
                     
-                    <a href="#contact" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full transition duration-300">
-                        Get to Know Us
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <!-- SMM -->
+                    <div class="noir-card p-10 rounded-2xl">
+                        <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" stroke-width="2"/></svg>
+                        </div>
+                        <h3 id="svc-smm-title" class="text-2xl font-bold text-white mb-4">SMM</h3>
+                        <p id="svc-smm-desc" class="text-gray-400 leading-relaxed mb-6">Building brand authority and viral communities across social ecosystems.</p>
+                        <a href="#" class="text-sm font-bold border-b border-white pb-1 hover:text-gray-300 transition uppercase tracking-widest">Learn More</a>
+                    </div>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Portfolio</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Explore our recent projects and see how we've helped businesses achieve their marketing goals.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Portfolio Item 1 -->
-                <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">🛍️</div>
-                            <h3 class="text-xl font-bold">E-Commerce Redesign</h3>
+                    <!-- PPC -->
+                    <div class="noir-card p-10 rounded-2xl">
+                        <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg>
                         </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Cairo Fashion</h3>
-                        <p class="text-gray-600">Complete e-commerce redesign with 200% increase in conversion rate.</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 2 -->
-                <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">📱</div>
-                            <h3 class="text-xl font-bold">Social Media Campaign</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Alexandria Foods</h3>
-                        <p class="text-gray-600">Social media campaign that increased engagement by 150%.</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 3 -->
-                <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-yellow-500 to-orange-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">🚀</div>
-                            <h3 class="text-xl font-bold">Brand Launch</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Giza Tech</h3>
-                        <p class="text-gray-600">Complete brand identity and successful market launch.</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 4 -->
-                <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-red-500 to-pink-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">📊</div>
-                            <h3 class="text-xl font-bold">SEO Optimization</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Luxor Travel</h3>
-                        <p class="text-gray-600">SEO strategy that increased organic traffic by 300%.</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 5 -->
-                <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">🎥</div>
-                            <h3 class="text-xl font-bold">Video Campaign</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Cairo Motors</h3>
-                        <p class="text-gray-600">Video marketing campaign with 1M+ views and 500+ leads.</p>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 6 -->
-                <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-blue-500 to-cyan-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">💻</div>
-                            <h3 class="text-xl font-bold">Web Development</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Aswan Resorts</h3>
-                        <p class="text-gray-600">Responsive website with booking system and 50% increase in reservations.</p>
-                    </div>
-                </div>
-                 <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">📈</div>
-                            <h3 class="text-xl font-bold">E-commerce Growth</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Local Fashion Retailer</h3>
-                        <p class="text-gray-600">400% increase in online sales within six months.</p>
-                    </div>
-                </div>
-                <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-red-500 to-yellow-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">📢</div>
-                            <h3 class="text-xl font-bold">Brand Awareness Campaign</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">Tech Startup</h3>
-                        <p class="text-gray-600">150% increase in website traffic and significant media coverage.</p>
-                    </div>
-                </div>
-                <div class="group overflow-hidden rounded-xl shadow-lg">
-                    <div class="relative h-64 bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
-                        <div class="text-white text-center p-6">
-                            <div class="text-4xl mb-2">🎯</div>
-                            <h3 class="text-xl font-bold">Lead Generation</h3>
-                        </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                            <a href="#" class="bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition duration-300">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark mb-2">B2B Company</h3>
-                        <p class="text-gray-600">Generated over 500 qualified leads in just three months.</p>
+                        <h3 id="svc-ppc-title" class="text-2xl font-bold text-white mb-4">PPC</h3>
+                        <p id="svc-ppc-desc" class="text-gray-400 leading-relaxed mb-6">Nuclear-grade advertising campaigns designed for maximum ROI and scale.</p>
+                        <a href="#" class="text-sm font-bold border-b border-white pb-1 hover:text-gray-300 transition uppercase tracking-widest">Learn More</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-12">
-                <a href="#contact" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full transition duration-300">
-                    View All Projects
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Client Testimonials</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our clients have to say about working with MenaVerse.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-white rounded-xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="text-yellow-400 flex">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+        <!-- Contact Section -->
+        <section id="contact" class="py-32">
+            <div class="container mx-auto px-6 max-w-2xl text-center">
+                <h2 id="contact-title" class="text-4xl font-bold text-white mb-8 uppercase tracking-widest">Start a Mission</h2>
+                <div class="noir-card p-12 rounded-3xl">
+                    <p id="contact-desc" class="text-gray-400 mb-12">Ready to dominate your market? Let's architect your growth strategy.</p>
+                    <div class="space-y-6 text-left mb-12">
+                        <div class="flex flex-col border-b border-white/5 pb-4">
+                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.3em] mb-1">Electronic Mail</span>
+                            <span class="text-white font-medium text-lg">contact@menaverse.online</span>
                         </div>
-                        <span class="ml-2 text-gray-600">5.0</span>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"MenaVerse transformed our online presence completely. Their team's expertise in digital marketing helped us reach new customers and grow our business significantly."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            AM
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-dark font-semibold">Ahmed Mohamed</h4>
-                            <p class="text-gray-500 text-sm">CEO, Cairo Fashion</p>
+                        <div class="flex flex-col border-b border-white/5 pb-4">
+                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.3em] mb-1">Direct Line</span>
+                            <span class="text-white font-medium text-lg">+201558058813</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-white rounded-xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="text-yellow-400 flex">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="ml-2 text-gray-600">5.0</span>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"The social media campaign created by MenaVerse exceeded our expectations. Our engagement rates increased dramatically, and we saw a direct impact on our sales."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            NS
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-dark font-semibold">Nour Said</h4>
-                            <p class="text-gray-500 text-sm">Marketing Director, Alexandria Foods</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-white rounded-xl shadow-lg p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="text-yellow-400 flex">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="ml-2 text-gray-600">4.5</span>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"Working with MenaVerse on our brand launch was a game-changer. Their strategic approach and creative execution helped us establish a strong market presence from day one."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl">
-                            KH
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-dark font-semibold">Karim Hassan</h4>
-                            <p class="text-gray-500 text-sm">Founder, Giza Tech</p>
-                        </div>
-                    </div>
+                    <button class="btn-noir w-full py-5 rounded-xl text-xs font-black uppercase tracking-[0.4em] shadow-xl">Initiate Contact</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Get In Touch</h2>
-                    <p class="text-gray-600 mb-8">Ready to transform your brand? Contact us today to discuss how our 360° marketing solutions can help your business grow.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="bg-primary/10 rounded-full p-3 mr-4">
-                                <i class="fas fa-map-marker-alt text-primary"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-dark mb-1">Our Location</h3>
-                                <p class="text-gray-600">Giza, Egypt</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-primary/10 rounded-full p-3 mr-4">
-                                <i class="fas fa-envelope text-primary"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-dark mb-1">Email Us</h3>
-                                <p class="text-gray-600">info@menaverse.online</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-primary/10 rounded-full p-3 mr-4">
-                                <i class="fas fa-phone-alt text-primary"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-dark mb-1">Call Us</h3>
-                                <p class="text-gray-600">+20 1558058813</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-primary/10 rounded-full p-3 mr-4">
-                                <i class="fas fa-clock text-primary"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-dark mb-1">Working Hours</h3>
-                                <p class="text-gray-600">Sunday - Thursday: 9:00 AM - 6:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8">
-                        <h3 class="text-lg font-semibold text-dark mb-4">Follow Us</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h3 class="text-2xl font-bold text-dark mb-6">Send Us a Message</h3>
-                        <form action="https://formsubmit.co/mo.omar477@gmail.com" method="POST" class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-                                    <input type="text" name="name" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your name" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-gray-700 mb-2">Your Email</label>
-                                    <input type="email" name="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email" required>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label for="message" class="block text-gray-700 mb-2">Your Message</label>
-                                <textarea name="message" id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your message" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <span class="text-xl font-bold text-white">MenaVerse</span>
-                    </div>
-                    <p class="text-gray-400 mb-6">
-                        Egypt's premier 360° marketing agency delivering innovative strategies and measurable results.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
-                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition duration-300">Testimonials</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Our Services</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Digital Marketing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Development</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SEO Optimization</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Content Creation</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Social Media Management</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Branding & Identity</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1.5 mr-3 text-secondary"></i>
-                            <span class="text-gray-400">Giza, Egypt</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1.5 mr-3 text-secondary"></i>
-                            <span class="text-gray-400">Info@menaverse.online</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1.5 mr-3 text-secondary"></i>
-                            <span class="text-gray-400">+20 1558058813</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-clock mt-1.5 mr-3 text-secondary"></i>
-                            <span class="text-gray-400">Sun - Thu: 9:00 AM - 6:00 PM</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0">
-                        &copy; 2023 MenaVerse. All rights reserved.
-                    </p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Cookie Policy</a>
-                    </div>
-                </div>
+    <footer class="py-16 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-gray-600 text-[10px] font-mono tracking-[0.5em] uppercase" id="footer-text">
+                &copy; 2024 MENAVERSE ONLINE. ALL RIGHTS RESERVED. // CAIRO, EGYPT
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
+        const translations = {
+            en: {
+                navBrand: "MENAVERSE",
+                navHome: "Home",
+                navAbout: "About",
+                navServices: "Services",
+                navWork: "Case Studies",
+                btnQuote: "GET A QUOTE",
+                heroTitle: 'YOUR DIGITAL <span class="text-gradient">GROWTH</span> PARTNER',
+                heroDesc: "Empowering businesses across the MENA region with high-status digital strategies and innovative solutions.",
+                heroBtnPrimary: "EXPLORE SERVICES",
+                heroBtnSecondary: "TALK TO US",
+                servicesTitle: "OUR CAPABILITIES",
+                servicesDesc: "Precision execution across the digital spectrum.",
+                svcSeoTitle: "SEO",
+                svcSeoDesc: "Dominating search landscapes and capturing high-intent traffic through technical mastery.",
+                svcSmmTitle: "SMM",
+                svcSmmDesc: "Building brand authority and viral communities across social ecosystems.",
+                svcPpcTitle: "PPC",
+                svcPpcDesc: "Nuclear-grade advertising campaigns designed for maximum ROI and scale.",
+                contactTitle: "START A MISSION",
+                contactDesc: "Ready to dominate your market? Let's architect your growth strategy.",
+                footer: "&copy; 2024 MENAVERSE ONLINE. ALL RIGHTS RESERVED. // CAIRO, EGYPT",
+                switchLang: "SWITCH TO ARABIC"
+            },
+            ar: {
+                navBrand: "مينا فيرس",
+                navHome: "الرئيسية",
+                navAbout: "عن الشركة",
+                navServices: "خدماتنا",
+                navWork: "أعمالنا",
+                btnQuote: "احصل على عرض سعر",
+                heroTitle: 'شريكك في <span class="text-gradient">النمو</span> الرقمي',
+                heroDesc: "تمكين الشركات في منطقة الشرق الأوسط وشمال أفريقيا باستراتيجيات رقمية رفيعة المستوى وحلول مبتكرة.",
+                heroBtnPrimary: "استكشف الخدمات",
+                heroBtnSecondary: "تحدث إلينا",
+                servicesTitle: "قدراتنا",
+                servicesDesc: "تنفيذ دقيق عبر الطيف الرقمي الكامل.",
+                svcSeoTitle: "تحسين محركات البحث",
+                svcSeoDesc: "السيطرة على نتائج البحث وجذب الزيارات عالية الجودة من خلال الإتقان التقني.",
+                svcSmmTitle: "التسويق الاجتماعي",
+                svcSmmDesc: "بناء سلطة العلامة التجارية والمجتمعات الفيروسية عبر الأنظمة الاجتماعية.",
+                svcPpcTitle: "الإعلانات المدفوعة",
+                svcPpcDesc: "حملات إعلانية بمستوى نووي مصممة لتحقيق أقصى عائد على الاستثمار والنمو.",
+                contactTitle: "ابدأ المهمة",
+                contactDesc: "جاهز للسيطرة على سوقك؟ دعنا نصمم استراتيجية نموك.",
+                footer: "&copy; 2024 مينا فيرس أونلاين. جميع الحقوق محفوظة. // القاهرة، مصر",
+                switchLang: "التغيير للإنجليزية"
+            }
+        };
+
+        let currentLang = 'en';
+        const langToggle = document.getElementById('lang-toggle');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Add active class to nav links based on scroll position
-        window.addEventListener('scroll', highlightNavLink);
-        
-        function highlightNavLink() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
+
+        function updateLanguage() {
+            const t = translations[currentLang];
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             
-            let currentSection = '';
+            document.body.className = currentLang === 'ar' ? 'font-arabic overflow-x-hidden' : 'font-english overflow-x-hidden';
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
+            // Web Nav
+            document.getElementById('nav-brand').innerText = t.navBrand;
+            document.getElementById('nav-home').innerText = t.navHome;
+            document.getElementById('nav-about').innerText = t.navAbout;
+            document.getElementById('nav-services').innerText = t.navServices;
+            document.getElementById('nav-work').innerText = t.navWork;
+            document.getElementById('btn-quote').innerText = t.btnQuote;
+
+            // Mobile Nav
+            document.getElementById('m-nav-home').innerText = t.navHome;
+            document.getElementById('m-nav-about').innerText = t.navAbout;
+            document.getElementById('m-nav-services').innerText = t.navServices;
+            document.getElementById('m-nav-work').innerText = t.navWork;
+            document.getElementById('m-btn-quote').innerText = t.btnQuote;
+            document.getElementById('lang-toggle-mobile').innerText = t.switchLang;
+
+            // Hero
+            document.getElementById('hero-title').innerHTML = t.heroTitle;
+            document.getElementById('hero-desc').innerText = t.heroDesc;
+            document.getElementById('hero-btn-primary').innerText = t.heroBtnPrimary;
+            document.getElementById('hero-btn-secondary').innerText = t.heroBtnSecondary;
+
+            // Services
+            document.getElementById('services-title').innerText = t.servicesTitle;
+            document.getElementById('services-desc').innerText = t.servicesDesc;
+            document.getElementById('svc-seo-title').innerText = t.svcSeoTitle;
+            document.getElementById('svc-seo-desc').innerText = t.svcSeoDesc;
+            document.getElementById('svc-smm-title').innerText = t.svcSmmTitle;
+            document.getElementById('svc-smm-desc').innerText = t.svcSmmDesc;
+            document.getElementById('svc-ppc-title').innerText = t.svcPpcTitle;
+            document.getElementById('svc-ppc-desc').innerText = t.svcPpcDesc;
+
+            // Contact
+            document.getElementById('contact-title').innerText = t.contactTitle;
+            document.getElementById('contact-desc').innerText = t.contactDesc;
+            document.getElementById('footer-text').innerHTML = t.footer;
             
-            navLinks.forEach(link => {
-                link.classList.remove('text-primary');
-                link.classList.add('text-dark');
-                
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.remove('text-dark');
-                    link.classList.add('text-primary');
-                }
-            });
+            langToggle.innerText = currentLang === 'en' ? 'AR' : 'EN';
         }
-        
-        // Initialize highlight on page load
-        highlightNavLink();
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            updateLanguage();
+        });
+
+        langToggleMobile.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            updateLanguage();
+            mobileMenu.classList.remove('active');
+        });
+
+        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        });
+
+        // Initialize animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
     </script>
 </body>
 </html>
