@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MenaVerse Online | Your Digital Growth Partner</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Premium Font Integration: Inter for EN, Cairo for AR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
@@ -14,35 +15,48 @@
             --accent-noir: #ffffff;
         }
 
-        .font-arabic { font-family: 'Noto Sans Arabic', sans-serif; }
+        .font-arabic { font-family: 'Cairo', sans-serif; }
         .font-english { font-family: 'Inter', sans-serif; }
 
         body {
             background-color: var(--bg-noir);
             color: #e0e0e0;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass-header {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-noir);
         }
 
         .noir-card {
             background: var(--surface-noir);
             border: 1px solid var(--border-noir);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .noir-card:hover {
-            border-color: #444;
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
+
+        .noir-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent);
+            pointer-events: none;
         }
 
         .text-gradient {
-            background: linear-gradient(to right, #ffffff, #888888);
+            background: linear-gradient(135deg, #ffffff 0%, #666666 100%);
             -webkit-background-clip: text;
             color: transparent;
         }
@@ -50,37 +64,39 @@
         .btn-noir {
             background: white;
             color: black;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: 0.05em;
             transition: all 0.3s ease;
         }
 
         .btn-noir:hover {
             background: #e0e0e0;
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            box-shadow: 0 0 30px rgba(255,255,255,0.15);
         }
 
-        /* Animations */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .reveal { animation: fadeInUp 0.8s ease forwards; }
+        .reveal { animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
 
         .lang-switcher {
             cursor: pointer;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border: 1px solid var(--border-noir);
             border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
             transition: 0.3s;
         }
 
         .lang-switcher:hover {
             background: white;
             color: black;
+            border-color: white;
         }
 
         .hero-mesh {
@@ -89,23 +105,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
+            background-image: radial-gradient(circle at 50% 30%, #111111 0%, #050505 70%);
             z-index: -1;
         }
 
-        /* Mobile Menu */
         #mobile-menu {
-            transition: transform 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
-            transform: translateX(100%);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            opacity: 0;
+            pointer-events: none;
+            backdrop-filter: blur(20px);
         }
         #mobile-menu.active {
-            transform: translateX(0);
-        }
-        [dir="rtl"] #mobile-menu {
-            transform: translateX(-100%);
-        }
-        [dir="rtl"] #mobile-menu.active {
-            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
         }
     </style>
 </head>
@@ -114,22 +126,22 @@
 
     <!-- Header -->
     <header class="glass-header sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center text-xl font-bold tracking-tighter">
-                <img src="Menaverse.png" alt="Logo" class="h-10 mr-3 rounded" />
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#" class="flex items-center text-2xl font-black tracking-tighter">
+                <img src="Menaverse.png" alt="Logo" class="h-12 mr-4 rounded-lg shadow-2xl" />
                 <span id="nav-brand">MENAVERSE</span>
             </a>
             
-            <nav class="hidden md:flex items-center space-x-8">
-                <ul class="flex space-x-8 text-sm font-medium text-gray-400">
+            <nav class="hidden md:flex items-center space-x-10">
+                <ul class="flex space-x-10 text-[13px] font-bold text-gray-400 uppercase tracking-widest">
                     <li><a href="#home" id="nav-home" class="hover:text-white transition">Home</a></li>
                     <li><a href="#about" id="nav-about" class="hover:text-white transition">About</a></li>
                     <li><a href="#services" id="nav-services" class="hover:text-white transition">Services</a></li>
                     <li><a href="#work" id="nav-work" class="hover:text-white transition">Case Studies</a></li>
                 </ul>
-                <div class="flex items-center space-x-4 ml-8">
+                <div class="flex items-center space-x-6 ml-10">
                     <div id="lang-toggle" class="lang-switcher">AR</div>
-                    <a href="#contact" id="btn-quote" class="btn-noir px-6 py-2 rounded-full text-sm">GET A QUOTE</a>
+                    <a href="#contact" id="btn-quote" class="btn-noir px-8 py-3 rounded-full text-[11px] uppercase tracking-[0.2em]">GET A QUOTE</a>
                 </div>
             </nav>
 
@@ -141,113 +153,125 @@
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black z-[60] flex flex-col p-10">
-        <div class="flex justify-between items-center mb-16">
-            <span class="text-xs font-mono tracking-widest text-gray-500 uppercase">Menu</span>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-[60] flex flex-col p-12">
+        <div class="flex justify-between items-center mb-20">
+            <span class="text-[10px] font-mono tracking-[0.5em] text-gray-500 uppercase">Navigation</span>
             <button id="close-menu-btn" class="text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-10 h-10">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
-        <nav class="flex flex-col space-y-8 text-3xl font-bold">
-            <a href="#home" id="m-nav-home" class="hover:text-gray-400 transition">Home</a>
-            <a href="#about" id="m-nav-about" class="hover:text-gray-400 transition">About</a>
-            <a href="#services" id="m-nav-services" class="hover:text-gray-400 transition">Services</a>
-            <a href="#work" id="m-nav-work" class="hover:text-gray-400 transition">Case Studies</a>
-            <div class="pt-10">
-                <a href="#contact" id="m-btn-quote" class="btn-noir px-10 py-4 rounded-full text-lg inline-block">GET A QUOTE</a>
+        <nav class="flex flex-col space-y-10 text-4xl font-black">
+            <a href="#home" id="m-nav-home" class="hover:text-gray-500 transition tracking-tighter">Home</a>
+            <a href="#about" id="m-nav-about" class="hover:text-gray-500 transition tracking-tighter">About</a>
+            <a href="#services" id="m-nav-services" class="hover:text-gray-500 transition tracking-tighter">Services</a>
+            <a href="#work" id="m-nav-work" class="hover:text-gray-500 transition tracking-tighter">Case Studies</a>
+            <div class="pt-12">
+                <a href="#contact" id="m-btn-quote" class="btn-noir px-12 py-5 rounded-full text-lg inline-block tracking-widest">GET A QUOTE</a>
             </div>
-            <div id="lang-toggle-mobile" class="text-sm font-mono mt-10 text-gray-500 border-t border-white/5 pt-10">SWITCH TO ARABIC</div>
+            <div id="lang-toggle-mobile" class="text-xs font-mono mt-16 text-gray-600 border-t border-white/5 pt-12 tracking-[0.3em] uppercase">SWITCH TO ARABIC</div>
         </nav>
     </div>
 
     <main>
         <!-- Hero Section -->
         <section id="home" class="min-h-screen flex items-center justify-center text-center px-6">
-            <div class="max-w-4xl reveal">
-                <h1 id="hero-title" class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+            <div class="max-w-5xl reveal">
+                <h1 id="hero-title" class="text-6xl md:text-8xl font-black text-white mb-8 leading-[1.1] tracking-tighter">
                     YOUR DIGITAL <span class="text-gradient">GROWTH</span> PARTNER
                 </h1>
-                <p id="hero-desc" class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Empowering businesses across the MENA region with high-status digital strategies and innovative solutions.
+                <p id="hero-desc" class="text-gray-400 text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                    Empowering high-status businesses across the MENA region with precision digital strategies and bespoke growth architectures.
                 </p>
-                <div class="flex flex-col md:flex-row justify-center gap-4">
-                    <a href="#services" id="hero-btn-primary" class="btn-noir px-10 py-4 rounded-full text-lg">EXPLORE SERVICES</a>
-                    <a href="#contact" id="hero-btn-secondary" class="border border-white/20 hover:bg-white/5 text-white px-10 py-4 rounded-full text-lg transition">TALK TO US</a>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="#services" id="hero-btn-primary" class="btn-noir px-12 py-5 rounded-full text-sm tracking-widest">EXPLORE CAPABILITIES</a>
+                    <a href="#contact" id="hero-btn-secondary" class="border border-white/10 hover:bg-white/5 text-white px-12 py-5 rounded-full text-sm tracking-widest transition">INITIATE MISSION</a>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-32 bg-[#080808]">
+        <!-- Capabilities Section -->
+        <section id="services" class="py-40 bg-[#030303]">
             <div class="container mx-auto px-6">
-                <div class="mb-20 text-center">
-                    <h2 id="services-title" class="text-3xl md:text-5xl font-bold text-white mb-4">OUR CAPABILITIES</h2>
-                    <p id="services-desc" class="text-gray-500">Precision execution across the digital spectrum.</p>
+                <div class="mb-24 text-center max-w-3xl mx-auto">
+                    <h2 id="services-title" class="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter">Our Capabilities</h2>
+                    <p id="services-desc" class="text-gray-500 text-lg">We don't just market. We architect market dominance.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <!-- SEO -->
-                    <div class="noir-card p-10 rounded-2xl">
-                        <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
+                    <div class="noir-card p-12 rounded-[2rem]">
+                        <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-10 border border-white/10">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
                         </div>
-                        <h3 id="svc-seo-title" class="text-2xl font-bold text-white mb-4">SEO</h3>
-                        <p id="svc-seo-desc" class="text-gray-400 leading-relaxed mb-6">Dominating search landscapes and capturing high-intent traffic through technical mastery.</p>
-                        <a href="#" class="text-sm font-bold border-b border-white pb-1 hover:text-gray-300 transition uppercase tracking-widest">Learn More</a>
+                        <h3 id="svc-seo-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">SEO Strike</h3>
+                        <p id="svc-seo-desc" class="text-gray-400 leading-relaxed mb-8 text-sm">Advanced semantic optimization and technical architecture designed to capture high-intent organic traffic and build permanent digital moats.</p>
+                        <ul class="text-[11px] text-gray-500 font-bold space-y-2 uppercase tracking-widest mb-10" id="svc-seo-list">
+                            <li>• Authority Audits</li>
+                            <li>• Topical Mapping</li>
+                            <li>• Technical Fortification</li>
+                        </ul>
                     </div>
                     
                     <!-- SMM -->
-                    <div class="noir-card p-10 rounded-2xl">
-                        <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" stroke-width="2"/></svg>
+                    <div class="noir-card p-12 rounded-[2rem]">
+                        <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-10 border border-white/10">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" stroke-width="2"/></svg>
                         </div>
-                        <h3 id="svc-smm-title" class="text-2xl font-bold text-white mb-4">SMM</h3>
-                        <p id="svc-smm-desc" class="text-gray-400 leading-relaxed mb-6">Building brand authority and viral communities across social ecosystems.</p>
-                        <a href="#" class="text-sm font-bold border-b border-white pb-1 hover:text-gray-300 transition uppercase tracking-widest">Learn More</a>
+                        <h3 id="svc-smm-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Social Authority</h3>
+                        <p id="svc-smm-desc" class="text-gray-400 leading-relaxed mb-8 text-sm">Engineering viral social ecosystems that transform brands into industry authorities through high-status content and behavioral psychology.</p>
+                        <ul class="text-[11px] text-gray-500 font-bold space-y-2 uppercase tracking-widest mb-10" id="svc-smm-list">
+                            <li>• Viral Scripting</li>
+                            <li>• Community Warfare</li>
+                            <li>• Content Factories</li>
+                        </ul>
                     </div>
 
                     <!-- PPC -->
-                    <div class="noir-card p-10 rounded-2xl">
-                        <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg>
+                    <div class="noir-card p-12 rounded-[2rem]">
+                        <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-10 border border-white/10">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg>
                         </div>
-                        <h3 id="svc-ppc-title" class="text-2xl font-bold text-white mb-4">PPC</h3>
-                        <p id="svc-ppc-desc" class="text-gray-400 leading-relaxed mb-6">Nuclear-grade advertising campaigns designed for maximum ROI and scale.</p>
-                        <a href="#" class="text-sm font-bold border-b border-white pb-1 hover:text-gray-300 transition uppercase tracking-widest">Learn More</a>
+                        <h3 id="svc-ppc-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Paid Acquisition</h3>
+                        <p id="svc-ppc-desc" class="text-gray-400 leading-relaxed mb-8 text-sm">High-velocity advertising campaigns built on behavioral funnels and real-time data to ensure aggressive scaling and massive ROI.</p>
+                        <ul class="text-[11px] text-gray-500 font-bold space-y-2 uppercase tracking-widest mb-10" id="svc-ppc-list">
+                            <li>• Funnel Arbitrage</li>
+                            <li>• Ad Vampire Tactics</li>
+                            <li>• Precision Targeting</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-32">
-            <div class="container mx-auto px-6 max-w-2xl text-center">
-                <h2 id="contact-title" class="text-4xl font-bold text-white mb-8 uppercase tracking-widest">Start a Mission</h2>
-                <div class="noir-card p-12 rounded-3xl">
-                    <p id="contact-desc" class="text-gray-400 mb-12">Ready to dominate your market? Let's architect your growth strategy.</p>
-                    <div class="space-y-6 text-left mb-12">
-                        <div class="flex flex-col border-b border-white/5 pb-4">
-                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.3em] mb-1">Electronic Mail</span>
-                            <span class="text-white font-medium text-lg">contact@menaverse.online</span>
+        <section id="contact" class="py-40">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <h2 id="contact-title" class="text-5xl font-black text-white mb-10 uppercase tracking-tighter">Initiate Contact</h2>
+                <div class="noir-card p-16 rounded-[3rem]">
+                    <p id="contact-desc" class="text-gray-400 mb-16 text-lg">Ready to scale? The Growth Architect is ready to deploy your squad.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left mb-16">
+                        <div class="flex flex-col border-b border-white/5 pb-6">
+                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.4em] mb-3">Electronic Mail</span>
+                            <span class="text-white font-bold text-xl">info@menaverse.online</span>
                         </div>
-                        <div class="flex flex-col border-b border-white/5 pb-4">
-                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.3em] mb-1">Direct Line</span>
-                            <span class="text-white font-medium text-lg">+201558058813</span>
+                        <div class="flex flex-col border-b border-white/5 pb-6">
+                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.4em] mb-3">Direct Support</span>
+                            <span class="text-white font-bold text-xl">+201558058813</span>
                         </div>
                     </div>
-                    <button class="btn-noir w-full py-5 rounded-xl text-xs font-black uppercase tracking-[0.4em] shadow-xl">Initiate Contact</button>
+                    <button class="btn-noir w-full py-6 rounded-2xl text-[12px] font-black uppercase tracking-[0.5em] shadow-2xl">Connect with the Engine</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-16 border-t border-white/5">
+    <footer class="py-20 border-t border-white/5 bg-black">
         <div class="container mx-auto px-6 text-center">
-            <div class="text-gray-600 text-[10px] font-mono tracking-[0.5em] uppercase" id="footer-text">
-                &copy; 2024 MENAVERSE ONLINE. ALL RIGHTS RESERVED. // CAIRO, EGYPT
+            <div class="text-gray-700 text-[10px] font-mono tracking-[0.6em] uppercase" id="footer-text">
+                &copy; 2024 MENAVERSE ONLINE. ALL RIGHTS RESERVED. // NOIR KERNEL v5.5
             </div>
         </div>
     </footer>
@@ -262,20 +286,23 @@
                 navWork: "Case Studies",
                 btnQuote: "GET A QUOTE",
                 heroTitle: 'YOUR DIGITAL <span class="text-gradient">GROWTH</span> PARTNER',
-                heroDesc: "Empowering businesses across the MENA region with high-status digital strategies and innovative solutions.",
-                heroBtnPrimary: "EXPLORE SERVICES",
-                heroBtnSecondary: "TALK TO US",
-                servicesTitle: "OUR CAPABILITIES",
-                servicesDesc: "Precision execution across the digital spectrum.",
-                svcSeoTitle: "SEO",
-                svcSeoDesc: "Dominating search landscapes and capturing high-intent traffic through technical mastery.",
-                svcSmmTitle: "SMM",
-                svcSmmDesc: "Building brand authority and viral communities across social ecosystems.",
-                svcPpcTitle: "PPC",
-                svcPpcDesc: "Nuclear-grade advertising campaigns designed for maximum ROI and scale.",
-                contactTitle: "START A MISSION",
-                contactDesc: "Ready to dominate your market? Let's architect your growth strategy.",
-                footer: "&copy; 2024 MENAVERSE ONLINE. ALL RIGHTS RESERVED. // CAIRO, EGYPT",
+                heroDesc: "Empowering high-status businesses across the MENA region with precision digital strategies and bespoke growth architectures.",
+                heroBtnPrimary: "EXPLORE CAPABILITIES",
+                heroBtnSecondary: "INITIATE MISSION",
+                servicesTitle: "Our Capabilities",
+                servicesDesc: "We don't just market. We architect market dominance.",
+                svcSeoTitle: "SEO Strike",
+                svcSeoDesc: "Advanced semantic optimization and technical architecture designed to capture high-intent organic traffic and build permanent digital moats.",
+                svcSeoList: "<li>• Authority Audits</li><li>• Topical Mapping</li><li>• Technical Fortification</li>",
+                svcSmmTitle: "Social Authority",
+                svcSmmDesc: "Engineering viral social ecosystems that transform brands into industry authorities through high-status content and behavioral psychology.",
+                svcSmmList: "<li>• Viral Scripting</li><li>• Community Warfare</li><li>• Content Factories</li>",
+                svcPpcTitle: "Paid Acquisition",
+                svcPpcDesc: "High-velocity advertising campaigns built on behavioral funnels and real-time data to ensure aggressive scaling and massive ROI.",
+                svcPpcList: "<li>• Funnel Arbitrage</li><li>• Ad Vampire Tactics</li><li>• Precision Targeting</li>",
+                contactTitle: "Initiate Contact",
+                contactDesc: "Ready to scale? The Growth Architect is ready to deploy your squad.",
+                footer: "&copy; 2024 MENAVERSE ONLINE. ALL RIGHTS RESERVED. // NOIR KERNEL v5.5",
                 switchLang: "SWITCH TO ARABIC"
             },
             ar: {
@@ -284,22 +311,25 @@
                 navAbout: "عن الشركة",
                 navServices: "خدماتنا",
                 navWork: "أعمالنا",
-                btnQuote: "احصل على عرض سعر",
+                btnQuote: "ابدأ المشروع",
                 heroTitle: 'شريكك في <span class="text-gradient">النمو</span> الرقمي',
-                heroDesc: "تمكين الشركات في منطقة الشرق الأوسط وشمال أفريقيا باستراتيجيات رقمية رفيعة المستوى وحلول مبتكرة.",
-                heroBtnPrimary: "استكشف الخدمات",
-                heroBtnSecondary: "تحدث إلينا",
-                servicesTitle: "قدراتنا",
-                servicesDesc: "تنفيذ دقيق عبر الطيف الرقمي الكامل.",
-                svcSeoTitle: "تحسين محركات البحث",
-                svcSeoDesc: "السيطرة على نتائج البحث وجذب الزيارات عالية الجودة من خلال الإتقان التقني.",
-                svcSmmTitle: "التسويق الاجتماعي",
-                svcSmmDesc: "بناء سلطة العلامة التجارية والمجتمعات الفيروسية عبر الأنظمة الاجتماعية.",
-                svcPpcTitle: "الإعلانات المدفوعة",
-                svcPpcDesc: "حملات إعلانية بمستوى نووي مصممة لتحقيق أقصى عائد على الاستثمار والنمو.",
-                contactTitle: "ابدأ المهمة",
-                contactDesc: "جاهز للسيطرة على سوقك؟ دعنا نصمم استراتيجية نموك.",
-                footer: "&copy; 2024 مينا فيرس أونلاين. جميع الحقوق محفوظة. // القاهرة، مصر",
+                heroDesc: "تمكين الشركات الرائدة في منطقة الشرق الأوسط وشمال أفريقيا باستراتيجيات رقمية دقيقة وهياكل نمو مخصصة.",
+                heroBtnPrimary: "استكشف القدرات",
+                heroBtnSecondary: "ابدأ المهمة",
+                servicesTitle: "قدراتنا الإستراتيجية",
+                servicesDesc: "نحن لا نسوق فقط. نحن نصمم هيمنتك على السوق.",
+                svcSeoTitle: "ضربة الـ SEO",
+                svcSeoDesc: "تحسين دلالي متقدم وهندسة تقنية مصممة للاستحواذ على زيارات البحث ذات النية العالية وبناء حصون رقمية دائمة.",
+                svcSeoList: "<li>• تدقيق السلطة الرقمية</li><li>• الخرائط الموضوعية</li><li>• التحصين التقني</li>",
+                svcSmmTitle: "السلطة الاجتماعية",
+                svcSmmDesc: "هندسة أنظمة اجتماعية فيروسية تحول العلامات التجارية إلى مراجع في صناعتها من خلال محتوى رفيع المستوى وعلم النفس السلوكي.",
+                svcSmmList: "<li>• كتابة المحتوى الفيروسي</li><li>• حرب المجتمعات الرقمية</li><li>• مصانع المحتوى</li>",
+                svcPpcTitle: "الاستحواذ المدفوع",
+                svcPpcDesc: "حملات إعلانية عالية السرعة مبنية على قنوات سلوكية وبيانات فورية لضمان التوسع القوي وعائد استثمار ضخم.",
+                svcPpcList: "<li>• مراجحة القنوات</li><li>• تكتيكات الاستحواذ الإعلاني</li><li>• الاستهداف الدقيق</li>",
+                contactTitle: "تواصل معنا",
+                contactDesc: "جاهز للتوسع؟ مهندس النمو مستعد لنشر فرقتك الخاصة.",
+                footer: "&copy; 2024 مينا فيرس أونلاين. جميع الحقوق محفوظة. // نواة نوار الإصدار 5.5",
                 switchLang: "التغيير للإنجليزية"
             }
         };
@@ -345,10 +375,13 @@
             document.getElementById('services-desc').innerText = t.servicesDesc;
             document.getElementById('svc-seo-title').innerText = t.svcSeoTitle;
             document.getElementById('svc-seo-desc').innerText = t.svcSeoDesc;
+            document.getElementById('svc-seo-list').innerHTML = t.svcSeoList;
             document.getElementById('svc-smm-title').innerText = t.svcSmmTitle;
             document.getElementById('svc-smm-desc').innerText = t.svcSmmDesc;
+            document.getElementById('svc-smm-list').innerHTML = t.svcSmmList;
             document.getElementById('svc-ppc-title').innerText = t.svcPpcTitle;
             document.getElementById('svc-ppc-desc').innerText = t.svcPpcDesc;
+            document.getElementById('svc-ppc-list').innerHTML = t.svcPpcList;
 
             // Contact
             document.getElementById('contact-title').innerText = t.contactTitle;
@@ -371,10 +404,7 @@
 
         hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
         closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        });
-
+        
         // Initialize animations on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -385,6 +415,16 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
