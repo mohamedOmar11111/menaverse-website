@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MenaVerse Online | Digital Growth Engine</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,13 +21,11 @@
             background-color: var(--bg-noir);
             color: #e0e0e0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            -webkit-tap-highlight-color: transparent;
         }
 
         .glass-header {
-            background: rgba(5, 5, 5, 0.8);
+            background: rgba(5, 5, 5, 0.7);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
@@ -39,12 +37,10 @@
             overflow: hidden;
         }
 
-        @media (min-width: 1024px) {
-            .noir-card:hover {
-                border-color: #ffffff;
-                transform: translateY(-12px);
-                box-shadow: 0 40px 80px rgba(0,0,0,0.8);
-            }
+        .noir-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8);
         }
 
         .text-gradient {
@@ -63,16 +59,16 @@
 
         .btn-noir:hover {
             background: #f0f0f0;
-            transform: scale(1.02);
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255,255,255,0.2);
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .reveal { opacity: 0; }
-        .reveal.active { animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+        .reveal { animation: fadeInUp 1.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
 
         .hero-image-bg {
             position: absolute;
@@ -80,38 +76,35 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.5), var(--bg-noir)), 
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4), var(--bg-noir)), 
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070');
             background-size: cover;
             background-position: center;
             z-index: -1;
-            filter: grayscale(100%) brightness(0.5);
+            filter: grayscale(100%) brightness(0.6);
         }
 
         .case-study-image {
-            height: 250px;
+            height: 400px;
             background-size: cover;
             background-position: center;
-            filter: grayscale(100%) brightness(0.7);
+            filter: grayscale(100%) contrast(1.1) brightness(0.8);
             transition: all 0.8s ease;
         }
 
-        @media (min-width: 768px) {
-            .case-study-image { height: 400px; }
-        }
-
         .noir-card:hover .case-study-image {
-            filter: grayscale(0%) brightness(0.9);
+            filter: grayscale(0%) contrast(1) brightness(0.9);
+            transform: scale(1.05);
         }
 
         .case-study-badge {
-            font-size: 8px;
-            padding: 4px 10px;
+            font-size: 9px;
+            padding: 5px 12px;
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
             color: #aaa;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.3em;
             font-weight: 900;
         }
 
@@ -119,31 +112,24 @@
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
             opacity: 0;
             pointer-events: none;
-            visibility: hidden;
+            backdrop-filter: blur(20px);
         }
         #mobile-menu.active {
             opacity: 1;
             pointer-events: auto;
-            visibility: visible;
-        }
-
-        /* Mobile Typography Tuning */
-        @media (max-width: 640px) {
-            h1 { font-size: 3.5rem !important; line-height: 1 !important; }
-            .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
         }
     </style>
 </head>
 <body class="font-english overflow-x-hidden">
     <!-- Header -->
     <header class="glass-header sticky top-0 z-50">
-        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center text-xl md:text-2xl font-black tracking-tighter">
-                <img src="Menaverse.png" alt="Logo" class="h-10 md:h-12 mr-3 md:mr-4 rounded-lg" />
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#" class="flex items-center text-2xl font-black tracking-tighter">
+                <img src="Menaverse.png" alt="Logo" class="h-12 mr-4 rounded-lg" />
                 <span id="nav-brand">MENAVERSE</span>
             </a>
             
-            <nav class="hidden lg:flex items-center space-x-10">
+            <nav class="hidden md:flex items-center space-x-10">
                 <ul class="flex space-x-10 text-[11px] font-black text-gray-400 uppercase tracking-widest">
                     <li><a href="#home" id="nav-home" class="hover:text-white transition">Home</a></li>
                     <li><a href="#about" id="nav-about" class="hover:text-white transition">About</a></li>
@@ -156,145 +142,142 @@
                 </div>
             </nav>
 
-            <div class="flex items-center lg:hidden space-x-4">
-                <div id="lang-toggle-mobile-icon" class="lang-switcher text-[10px]">AR</div>
-                <button id="hamburger-btn" class="text-white focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-            </div>
+            <button id="hamburger-btn" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black/98 z-[60] flex flex-col p-8 md:p-12 overflow-y-auto">
-        <div class="flex justify-between items-center mb-16 md:mb-20">
+    <div id="mobile-menu" class="fixed inset-0 bg-black/98 z-[60] flex flex-col p-12">
+        <div class="flex justify-between items-center mb-20">
             <button id="close-menu-btn" class="text-white ml-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-10 h-10">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
-        <nav class="flex flex-col space-y-8 md:space-y-10 text-4xl md:text-6xl font-black uppercase">
-            <a href="#home" class="mobile-nav-link hover:text-gray-500 transition tracking-tighter">Home</a>
-            <a href="#about" class="mobile-nav-link hover:text-gray-500 transition tracking-tighter">About</a>
-            <a href="#services" class="mobile-nav-link hover:text-gray-500 transition tracking-tighter">Services</a>
-            <a href="#work" class="mobile-nav-link hover:text-gray-500 transition tracking-tighter">Case Studies</a>
-            <a href="mailto:info@menaverse.online" class="btn-noir px-8 py-4 rounded-full text-sm inline-block w-fit mt-10">CONTACT US</a>
+        <nav class="flex flex-col space-y-10 text-4xl font-black">
+            <a href="#home" class="hover:text-gray-500 transition tracking-tighter uppercase">Home</a>
+            <a href="#about" class="hover:text-gray-500 transition tracking-tighter uppercase">About</a>
+            <a href="#services" class="hover:text-gray-500 transition tracking-tighter uppercase">Services</a>
+            <a href="#work" class="hover:text-gray-500 transition tracking-tighter uppercase">Case Studies</a>
+            <div id="lang-toggle-mobile" class="text-xs font-mono mt-16 text-gray-600 border-t border-white/5 pt-12 tracking-[0.3em] uppercase cursor-pointer">SWITCH TO ARABIC</div>
         </nav>
     </div>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="relative min-h-screen flex items-center justify-center text-center px-4 md:px-6 overflow-hidden">
+        <section id="home" class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
             <div class="hero-image-bg"></div>
-            <div class="max-w-6xl reveal relative z-10 py-20">
-                <h1 id="hero-title" class="text-5xl md:text-8xl lg:text-9xl font-black text-white mb-6 md:mb-8 leading-[1] tracking-tighter uppercase">
+            <div class="max-w-6xl reveal relative z-10">
+                <h1 id="hero-title" class="text-6xl md:text-9xl font-black text-white mb-8 leading-[0.9] tracking-tighter uppercase">
                     MENAVERSE <span class="text-gradient">GROWTH</span> ENGINE
                 </h1>
-                <p id="hero-desc" class="text-gray-300 text-base md:text-xl lg:text-2xl mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                <p id="hero-desc" class="text-gray-300 text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
                     Nuclear-grade digital solutions. We deploy high-status strategies to dominate the MENA market for elite brands and regional industry leaders.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-                    <a href="#work" id="hero-btn-primary" class="btn-noir px-10 md:px-12 py-4 md:py-5 rounded-full text-[10px] md:text-xs font-black tracking-widest uppercase text-center">Explore Success</a>
-                    <a href="mailto:info@menaverse.online" id="hero-btn-secondary" class="bg-black/40 backdrop-blur-md border border-white/20 hover:bg-white/10 text-white px-10 md:px-12 py-4 md:py-5 rounded-full text-[10px] md:text-xs font-black tracking-widest transition uppercase text-center">Initiate Mission</a>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="#work" id="hero-btn-primary" class="btn-noir px-12 py-5 rounded-full text-xs font-black tracking-widest uppercase">Explore Success</a>
+                    <a href="mailto:info@menaverse.online" id="hero-btn-secondary" class="bg-black/40 backdrop-blur-md border border-white/20 hover:bg-white/10 text-white px-12 py-5 rounded-full text-xs font-black tracking-widest transition uppercase">Initiate Mission</a>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-24 md:py-40 bg-black">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+        <section id="about" class="py-40 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                     <div class="reveal">
                         <div class="case-study-badge mb-6" id="about-tag">Brand Identity</div>
-                        <h2 id="about-title" class="text-4xl md:text-7xl font-black text-white mb-6 md:mb-8 tracking-tighter uppercase">MenaVerse</h2>
-                        <p id="about-p1" class="text-gray-400 text-lg md:text-xl leading-relaxed mb-6 md:mb-8">
+                        <h2 id="about-title" class="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter uppercase">MenaVerse</h2>
+                        <p id="about-p1" class="text-gray-400 text-xl leading-relaxed mb-8">
                             Based in the heart of Cairo, <strong>MenaVerse</strong> is a specialized digital growth engine. We operate at the intersection of behavioral psychology and advanced data engineering.
                         </p>
-                        <p id="about-p2" class="text-gray-500 text-base md:text-lg leading-relaxed mb-8 md:mb-10">
+                        <p id="about-p2" class="text-gray-500 text-lg leading-relaxed mb-10">
                             Our methodology is built on transparency, velocity, and undeniable market ROI. We transform regional businesses into global benchmarks.
                         </p>
-                        <div class="grid grid-cols-3 gap-4 md:gap-10 border-t border-white/5 pt-8 md:pt-10">
-                            <div><span class="block text-white text-xl md:text-3xl font-black mb-1 uppercase">MENA</span><span class="text-gray-600 text-[8px] md:text-[10px] uppercase tracking-widest font-bold">Focus</span></div>
-                            <div><span class="block text-white text-xl md:text-3xl font-black mb-1 uppercase">100%</span><span class="text-gray-600 text-[8px] md:text-[10px] uppercase tracking-widest font-bold">Data</span></div>
-                            <div><span class="block text-white text-xl md:text-3xl font-black mb-1 uppercase">24/7</span><span class="text-gray-600 text-[8px] md:text-[10px] uppercase tracking-widest font-bold">Pulse</span></div>
+                        <div class="grid grid-cols-3 gap-10">
+                            <div><span class="block text-white text-3xl font-black mb-1 uppercase">MENA</span><span class="text-gray-600 text-[10px] uppercase tracking-widest font-bold">Focus</span></div>
+                            <div><span class="block text-white text-3xl font-black mb-1 uppercase">100%</span><span class="text-gray-600 text-[10px] uppercase tracking-widest font-bold">Data</span></div>
+                            <div><span class="block text-white text-3xl font-black mb-1 uppercase">24/7</span><span class="text-gray-600 text-[10px] uppercase tracking-widest font-bold">Pulse</span></div>
                         </div>
                     </div>
-                    <div class="noir-card rounded-[2rem] md:rounded-[3rem] overflow-hidden reveal lg:order-last order-first">
-                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070" alt="Tech Architecture" class="w-full h-[300px] md:h-auto object-cover filter grayscale contrast-125 brightness-75 hover:grayscale-0 transition duration-1000">
+                    <div class="noir-card rounded-[3rem] overflow-hidden reveal">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070" alt="Tech Architecture" class="w-full filter grayscale contrast-125 brightness-75 hover:grayscale-0 transition duration-1000">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-24 md:py-40 bg-[#030303]">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="mb-16 md:mb-32 text-center lg:text-left max-w-4xl">
+        <!-- Capabilities Section (FULL ELABORATION) -->
+        <section id="services" class="py-40 bg-[#030303]">
+            <div class="container mx-auto px-6">
+                <div class="mb-32 text-center max-w-4xl mx-auto">
                     <div class="case-study-badge mb-6" id="svc-tag">Strategic Toolkit</div>
-                    <h2 id="services-title" class="text-4xl md:text-8xl font-black text-white mb-6 md:mb-8 uppercase tracking-tighter leading-none">Capabilities</h2>
-                    <p id="services-desc" class="text-gray-500 text-lg md:text-xl">Engineering market dominance through six core tactical wings.</p>
+                    <h2 id="services-title" class="text-5xl md:text-8xl font-black text-white mb-8 uppercase tracking-tighter leading-none">Capabilities</h2>
+                    <p id="services-desc" class="text-gray-500 text-xl">Engineering market dominance through six core tactical wings.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <!-- SEO Strike -->
-                    <div class="noir-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] reveal">
-                        <div class="mb-6 md:mb-8 text-white"><svg class="w-8 md:w-10 h-8 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg></div>
-                        <h3 id="svc-seo-title" class="text-xl md:text-2xl font-black text-white mb-4 md:mb-6 uppercase tracking-widest">SEO Strike</h3>
-                        <p id="svc-seo-desc" class="text-gray-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8">Advanced semantic architecture and technical fortification to own high-intent organic landscapes.</p>
-                        <ul class="text-[9px] md:text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-seo-list">
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-seo-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">SEO Strike</h3>
+                        <p id="svc-seo-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Advanced semantic architecture and technical fortification to own high-intent organic landscapes.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-seo-list">
                             <li>• Authority Audits</li><li>• Topical Moats</li><li>• Technical SEO</li>
                         </ul>
                     </div>
                     
                     <!-- Social Authority -->
-                    <div class="noir-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] reveal">
-                        <div class="mb-6 md:mb-8 text-white"><svg class="w-8 md:w-10 h-8 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" stroke-width="2"/></svg></div>
-                        <h3 id="svc-smm-title" class="text-xl md:text-2xl font-black text-white mb-4 md:mb-6 uppercase tracking-widest">Social Authority</h3>
-                        <p id="svc-smm-desc" class="text-gray-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8">Engineering viral ecosystems that transform brands into industry authorities through psychology-led content.</p>
-                        <ul class="text-[9px] md:text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-smm-list">
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-smm-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Social Authority</h3>
+                        <p id="svc-smm-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Engineering viral ecosystems that transform brands into industry authorities through psychology-led content.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-smm-list">
                             <li>• Viral Scripting</li><li>• Community Scaling</li><li>• Influencer Blitz</li>
                         </ul>
                     </div>
 
                     <!-- Paid Acquisition -->
-                    <div class="noir-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] reveal">
-                        <div class="mb-6 md:mb-8 text-white"><svg class="w-8 md:w-10 h-8 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg></div>
-                        <h3 id="svc-ppc-title" class="text-xl md:text-2xl font-black text-white mb-4 md:mb-6 uppercase tracking-widest">Paid Acquisition</h3>
-                        <p id="svc-ppc-desc" class="text-gray-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8">High-velocity advertising funnels built on behavioral funnels and real-time data for aggressive scaling.</p>
-                        <ul class="text-[9px] md:text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-ppc-list">
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-ppc-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Paid Acquisition</h3>
+                        <p id="svc-ppc-desc" class="text-gray-400 text-sm leading-relaxed mb-8">High-velocity advertising funnels built on behavioral funnels and real-time data for aggressive scaling.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-ppc-list">
                             <li>• Funnel Arbitrage</li><li>• Ad Vampire Logic</li><li>• Precision Scaling</li>
                         </ul>
                     </div>
 
                     <!-- Media Production -->
-                    <div class="noir-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] reveal">
-                        <div class="mb-6 md:mb-8 text-white"><svg class="w-8 md:w-10 h-8 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-width="2"/></svg></div>
-                        <h3 id="svc-media-title" class="text-xl md:text-2xl font-black text-white mb-4 md:mb-6 uppercase tracking-widest">Media Production</h3>
-                        <p id="svc-media-desc" class="text-gray-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8">Cinematic visual storytelling and high-status creative production designed for elite market positioning.</p>
-                        <ul class="text-[9px] md:text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-media-list">
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-media-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Media Production</h3>
+                        <p id="svc-media-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Cinematic visual storytelling and high-status creative production designed for elite market positioning.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-media-list">
                             <li>• Brand Films</li><li>• Social Content</li><li>• Event Coverage</li>
                         </ul>
                     </div>
 
                     <!-- Growth Auditing -->
-                    <div class="noir-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] reveal">
-                        <div class="mb-6 md:mb-8 text-white"><svg class="w-8 md:w-10 h-8 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-width="2"/></svg></div>
-                        <h3 id="svc-audit-title" class="text-xl md:text-2xl font-black text-white mb-4 md:mb-6 uppercase tracking-widest">Growth Auditing</h3>
-                        <p id="svc-audit-desc" class="text-gray-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8">Deep-tissue digital forensics to identify hidden revenue leaks and uncaptured scaling opportunities.</p>
-                        <ul class="text-[9px] md:text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-audit-list">
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-audit-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Growth Auditing</h3>
+                        <p id="svc-audit-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Deep-tissue digital forensics to identify hidden revenue leaks and uncaptured scaling opportunities.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-audit-list">
                             <li>• UX/UI Forensics</li><li>• Revenue Analysis</li><li>• Competitor Recon</li>
                         </ul>
                     </div>
 
                     <!-- Bespoke Engines -->
-                    <div class="noir-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] reveal">
-                        <div class="mb-6 md:mb-8 text-white"><svg class="w-8 md:w-10 h-8 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2"/></svg></div>
-                        <h3 id="svc-bespoke-title" class="text-xl md:text-2xl font-black text-white mb-4 md:mb-6 uppercase tracking-widest">Bespoke Engines</h3>
-                        <p id="svc-bespoke-desc" class="text-gray-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8">Custom growth architectures and automated systems built for mission-critical objectives.</p>
-                        <ul class="text-[9px] md:text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-bespoke-list">
+                    <div class="noir-card p-12 rounded-[2.5rem]">
+                        <div class="mb-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2"/></svg></div>
+                        <h3 id="svc-bespoke-title" class="text-2xl font-black text-white mb-6 uppercase tracking-widest">Bespoke Engines</h3>
+                        <p id="svc-bespoke-desc" class="text-gray-400 text-sm leading-relaxed mb-8">Custom growth architectures and automated systems built for mission-critical objectives.</p>
+                        <ul class="text-[10px] text-gray-600 font-black space-y-2 uppercase tracking-widest" id="svc-bespoke-list">
                             <li>• AI Integrations</li><li>• Custom Funnels</li><li>• Workflow SOPs</li>
                         </ul>
                     </div>
@@ -303,36 +286,36 @@
         </section>
 
         <!-- Case Studies -->
-        <section id="work" class="py-24 md:py-40 bg-black">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="mb-16 md:mb-32 text-center md:text-left">
+        <section id="work" class="py-40 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="mb-32 text-left">
                     <div class="case-study-badge mb-6" id="work-tag">Mission Success</div>
-                    <h2 id="work-title" class="text-4xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase">Case Studies</h2>
+                    <h2 id="work-title" class="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase">Case Studies</h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <!-- Aqarverse -->
-                    <div class="noir-card rounded-[2rem] md:rounded-[3rem] reveal">
+                    <div class="noir-card rounded-[3rem] reveal">
                         <div class="case-study-image" style="background-image: url('https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?q=80&w=2074')"></div>
-                        <div class="p-8 md:p-12">
-                            <div class="text-[9px] md:text-[10px] font-mono text-gray-500 mb-4 uppercase tracking-[0.4em]">Real Estate Tech</div>
-                            <h3 class="text-3xl md:text-4xl font-black text-white mb-6 uppercase">Aqarverse</h3>
-                            <div class="flex flex-wrap gap-6 md:gap-10">
-                                <div><span class="block text-xl md:text-2xl font-black text-white">-40%</span><span class="text-gray-600 text-[8px] md:text-[9px] uppercase font-bold tracking-widest">CPA Reduction</span></div>
-                                <div><span class="block text-xl md:text-2xl font-black text-white">2X</span><span class="text-gray-600 text-[8px] md:text-[9px] uppercase font-bold tracking-widest">Lead Velocity</span></div>
+                        <div class="p-12">
+                            <div class="text-[10px] font-mono text-gray-500 mb-4 uppercase tracking-[0.4em]">Real Estate Tech</div>
+                            <h3 class="text-4xl font-black text-white mb-6 uppercase">Aqarverse</h3>
+                            <div class="flex gap-10">
+                                <div><span class="block text-2xl font-black text-white">-40%</span><span class="text-gray-600 text-[9px] uppercase font-bold tracking-widest">CPA Reduction</span></div>
+                                <div><span class="block text-2xl font-black text-white">2X</span><span class="text-gray-600 text-[9px] uppercase font-bold tracking-widest">Lead Velocity</span></div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Etlaala -->
-                    <div class="noir-card rounded-[2rem] md:rounded-[3rem] reveal">
+                    <div class="noir-card rounded-[3rem] reveal">
                         <div class="case-study-image" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069')"></div>
-                        <div class="p-8 md:p-12">
-                            <div class="text-[9px] md:text-[10px] font-mono text-gray-500 mb-4 uppercase tracking-[0.4em]">Luxury Travel</div>
-                            <h3 class="text-3xl md:text-4xl font-black text-white mb-6 uppercase">Etlaala.com</h3>
-                            <div class="flex flex-wrap gap-6 md:gap-10">
-                                <div><span class="block text-xl md:text-2xl font-black text-white">300%</span><span class="text-gray-600 text-[8px] md:text-[9px] uppercase font-bold tracking-widest">AOV Surge</span></div>
-                                <div><span class="block text-xl md:text-2xl font-black text-white">85%</span><span class="text-gray-600 text-[8px] md:text-[9px] uppercase font-bold tracking-widest">Retention</span></div>
+                        <div class="p-12">
+                            <div class="text-[10px] font-mono text-gray-500 mb-4 uppercase tracking-[0.4em]">Luxury Travel</div>
+                            <h3 class="text-4xl font-black text-white mb-6 uppercase">Etlaala.com</h3>
+                            <div class="flex gap-10">
+                                <div><span class="block text-2xl font-black text-white">300%</span><span class="text-gray-600 text-[9px] uppercase font-bold tracking-widest">AOV Surge</span></div>
+                                <div><span class="block text-2xl font-black text-white">85%</span><span class="text-gray-600 text-[9px] uppercase font-bold tracking-widest">Retention</span></div>
                             </div>
                         </div>
                     </div>
@@ -341,30 +324,30 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="py-24 md:py-40 relative">
-            <div class="container mx-auto px-4 md:px-6 max-w-4xl text-center relative z-10">
-                <h2 id="contact-title" class="text-4xl md:text-9xl font-black text-white mb-8 md:mb-10 uppercase tracking-tighter">Initiate</h2>
-                <div class="noir-card p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem]">
-                    <p id="contact-desc" class="text-gray-400 mb-10 md:mb-16 text-base md:text-xl">MenaVerse Intelligence is ready for deployment. Connect with our tactical team.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 text-left mb-10 md:mb-16">
-                        <div class="border-b border-white/5 pb-6 md:pb-8">
-                            <span class="text-gray-500 text-[8px] md:text-[10px] font-mono uppercase tracking-[0.5em] mb-3 md:mb-4 block">Official Channel</span>
-                            <span class="text-white font-black text-lg md:text-2xl truncate">info@menaverse.online</span>
+        <section id="contact" class="py-40 relative">
+            <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+                <h2 id="contact-title" class="text-5xl md:text-9xl font-black text-white mb-10 uppercase tracking-tighter">Initiate</h2>
+                <div class="noir-card p-16 rounded-[4rem]">
+                    <p id="contact-desc" class="text-gray-400 mb-16 text-xl">MenaVerse Intelligence is ready for deployment. Connect with our tactical team.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left mb-16">
+                        <div class="border-b border-white/5 pb-8">
+                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.5em] mb-4 block">Official Channel</span>
+                            <span class="text-white font-black text-2xl">info@menaverse.online</span>
                         </div>
-                        <div class="border-b border-white/5 pb-6 md:pb-8">
-                            <span class="text-gray-500 text-[8px] md:text-[10px] font-mono uppercase tracking-[0.5em] mb-3 md:mb-4 block">Support Line</span>
-                            <span class="text-white font-black text-lg md:text-2xl">+201558058813</span>
+                        <div class="border-b border-white/5 pb-8">
+                            <span class="text-gray-500 text-[10px] font-mono uppercase tracking-[0.5em] mb-4 block">Support Line</span>
+                            <span class="text-white font-black text-2xl">+201558058813</span>
                         </div>
                     </div>
-                    <a href="mailto:info@menaverse.online" class="btn-noir w-full py-6 md:py-8 rounded-2xl text-[12px] md:text-[14px] font-black uppercase tracking-[0.6em] shadow-2xl flex items-center justify-center">Start mission</a>
+                    <a href="mailto:info@menaverse.online" class="btn-noir w-full py-8 rounded-2xl text-[14px] font-black uppercase tracking-[0.6em] shadow-2xl flex items-center justify-center">Start mission</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-16 md:py-20 border-t border-white/5 bg-black">
+    <footer class="py-20 border-t border-white/5 bg-black">
         <div class="container mx-auto px-6 text-center">
-            <div class="text-gray-700 text-[8px] md:text-[10px] font-mono tracking-[0.8em] uppercase" id="footer-text">
+            <div class="text-gray-700 text-[10px] font-mono tracking-[0.8em] uppercase" id="footer-text">
                 &copy; 2024 MENAVERSE ONLINE. ALL RIGHTS RESERVED.
             </div>
         </div>
@@ -428,8 +411,7 @@
 
         let currentLang = 'en';
         const langToggle = document.getElementById('lang-toggle');
-        const langToggleMobile = document.getElementById('lang-toggle-mobile-icon');
-        const langToggleMenu = document.getElementById('lang-toggle-mobile');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -450,39 +432,16 @@
                 }
             });
             langToggle.innerText = currentLang === 'en' ? 'AR' : 'EN';
-            langToggleMobile.innerText = currentLang === 'en' ? 'AR' : 'EN';
-            langToggleMenu.innerText = t.switchLang;
+            langToggleMobile.innerText = t.switchLang;
         }
 
-        [langToggle, langToggleMobile, langToggleMenu].forEach(el => {
-            el.addEventListener('click', () => { 
-                currentLang = currentLang === 'en' ? 'ar' : 'en'; 
-                updateLanguage(); 
-                if(mobileMenu.classList.contains('active')) mobileMenu.classList.remove('active');
-            });
-        });
-
+        langToggle.addEventListener('click', () => { currentLang = currentLang === 'en' ? 'ar' : 'en'; updateLanguage(); });
+        langToggleMobile.addEventListener('click', () => { currentLang = currentLang === 'en' ? 'ar' : 'en'; updateLanguage(); mobileMenu.classList.remove('active'); });
         hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
         closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
         
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        });
-
-        const observer = new IntersectionObserver((entries) => { 
-            entries.forEach(entry => { 
-                if (entry.isIntersecting) entry.target.classList.add('active'); 
-            }); 
-        }, { threshold: 0.1 });
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal'); }); }, { threshold: 0.1 });
         document.querySelectorAll('section, .reveal').forEach(el => observer.observe(el));
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
     </script>
 </body>
 </html>
