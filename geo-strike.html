@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO STRIKE | Generative Engine Optimization | MenaVerse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080808;
+            --text-color: #E5E5E5;
+            --accent: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        body.font-arabic { font-family: 'Cairo', sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        nav { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -0.05em; text-decoration: none; color: white; }
+        .hero { padding: 10rem 0; text-align: center; }
+        h1 { font-size: clamp(3rem, 10vw, 8rem); font-weight: 900; line-height: 0.9; margin-bottom: 2rem; text-transform: uppercase; }
+        .stroke-text { -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4); color: transparent; }
+        .desc { font-size: 1.5rem; color: #888; max-width: 800px; margin: 0 auto 4rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
+        .card { padding: 3rem; border: 1px solid #1a1a1a; background: #0a0a0a; transition: var(--transition); }
+        .card:hover { border-color: white; transform: translateY(-10px); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; text-transform: uppercase; }
+        .card p { color: #666; font-size: 0.9rem; }
+        .cta-btn { display: inline-block; padding: 1.5rem 4rem; background: white; color: black; text-decoration: none; font-weight: 900; text-transform: uppercase; margin-top: 4rem; transition: var(--transition); }
+        .cta-btn:hover { background: #888; color: white; }
+        .lang-btn { background: transparent; border: 1px solid #1a1a1a; color: white; padding: 0.5rem 1rem; border-radius: 99px; cursor: pointer; font-weight: 800; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">MENAVERSE</a>
+            <div>
+                <button class="lang-btn" onclick="toggleLang()" id="lang-btn">AR</button>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <h1 id="title">GEO<br><span class="stroke-text">STRIKE</span></h1>
+            <p class="desc" id="desc">Dominating the Generative AI era. Ensuring your brand is the primary source for LLMs like ChatGPT, Claude, and Gemini.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3 id="c1-t">Semantic Moats</h3>
+                    <p id="c1-d">Building topical authority that AI models recognize as the definitive source of truth.</p>
+                </div>
+                <div class="card">
+                    <h3 id="c2-t">LLM Citations</h3>
+                    <p id="c2-d">Surgical optimization to trigger direct mentions and citations in generative search results.</p>
+                </div>
+                <div class="card">
+                    <h3 id="c3-t">Data Integrity</h3>
+                    <p id="c3-d">Cleaning and structuring your digital footprint for seamless AI indexing and recall.</p>
+                </div>
+            </div>
+
+            <a href="mailto:info@menaverse.online" class="cta-btn" id="cta">Initialize Strike</a>
+        </section>
+    </div>
+
+    <script>
+        const t = {
+            en: {
+                title: 'GEO<br><span class="stroke-text">STRIKE</span>',
+                desc: 'Dominating the Generative AI era. Ensuring your brand is the primary source for LLMs like ChatGPT, Claude, and Gemini.',
+                c1t: 'Semantic Moats', c1d: 'Building topical authority that AI models recognize as the definitive source of truth.',
+                c2t: 'LLM Citations', c2d: 'Surgical optimization to trigger direct mentions and citations in generative search results.',
+                c3t: 'Data Integrity', c3d: 'Cleaning and structuring your digital footprint for seamless AI indexing and recall.',
+                cta: 'Initialize Strike'
+            },
+            ar: {
+                title: 'هجمة<br><span class="stroke-text">الـ GEO</span>',
+                desc: 'الهيمنة في عصر الذكاء الاصطناعي التوليدي. بنضمن إن براندك يكون المصدر الأساسي لنماذج ChatGPT و Claude و Gemini.',
+                c1t: 'الخنادق الدلالية', c1d: 'بناء سلطة موضوعية بتخلي نماذج الـ AI تعتمد عليك كمرجع نهائي للمعلومة.',
+                c2t: 'اقتباسات الـ LLM', c2d: 'تحسين دقيق بيخلي الـ AI يذكر اسمك ويحط روابط موقعك في إجاباته.',
+                c3t: 'سلامة البيانات', c3d: 'تنظيم وهيكلة بصمتك الرقمية عشان الـ AI يقدر يفهمها ويسترجعها بسهولة.',
+                cta: 'ابدأ الهجوم'
+            }
+        };
+
+        let lang = localStorage.getItem('preferredLang') || 'en';
+
+        function toggleLang() {
+            lang = lang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('preferredLang', lang);
+            render();
+        }
+
+        function render() {
+            const content = t[lang];
+            const isAr = lang === 'ar';
+            document.body.dir = isAr ? 'rtl' : 'ltr';
+            document.body.classList.toggle('font-arabic', isAr);
+            
+            document.getElementById('title').innerHTML = content.title;
+            document.getElementById('desc').innerText = content.desc;
+            document.getElementById('c1-t').innerText = content.c1t;
+            document.getElementById('c1-d').innerText = content.c1d;
+            document.getElementById('c2-t').innerText = content.c2t;
+            document.getElementById('c2-d').innerText = content.c2d;
+            document.getElementById('c3-t').innerText = content.c3t;
+            document.getElementById('c3-d').innerText = content.c3d;
+            document.getElementById('cta').innerText = content.cta;
+            document.getElementById('lang-btn').innerText = isAr ? 'EN' : 'عربي';
+        }
+
+        render();
+    </script>
+</body>
+</html>

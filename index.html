@@ -142,6 +142,7 @@
                     <li><a href="#about" id="nav-about" class="hover:text-white transition">The Engine</a></li>
                     <li><a href="#services" id="nav-services" class="hover:text-white transition">Capabilities</a></li>
                     <li><a href="#work" id="nav-work" class="hover:text-white transition">Missions</a></li>
+                    <li><a href="portfolio.html" id="nav-portfolio" class="hover:text-white transition">Portfolio</a></li>
                 </ul>
                 <div class="flex items-center space-x-4 ml-8">
                     <div id="lang-toggle" class="lang-switcher">AR</div>
@@ -170,6 +171,7 @@
             <a href="#about" id="m-nav-about" class="m-link">The Engine</a>
             <a href="#services" id="m-nav-services" class="m-link">Capabilities</a>
             <a href="#work" id="m-nav-work" class="m-link">Missions</a>
+            <a href="portfolio.html" id="m-nav-portfolio" class="m-link">Portfolio</a>
             <div id="lang-toggle-menu" class="text-xs font-mono text-gray-500 pt-8 border-t border-white/10 uppercase">Switch to Arabic</div>
             <a href="mailto:info@menaverse.online" id="m-btn-quote" class="btn-noir py-4 rounded-full text-sm">DEPLOY SQUAD</a>
         </nav>
@@ -339,7 +341,7 @@
     <script>
         const translations = {
             en: {
-                navHome: "Home", navAbout: "The Engine", navServices: "Capabilities", navWork: "Missions", btnQuote: "DEPLOY SQUAD",
+                navHome: "Home", navAbout: "The Engine", navServices: "Capabilities", navWork: "Missions", navPortfolio: "Portfolio", btnQuote: "DEPLOY SQUAD",
                 heroTitle: 'MENAVERSE <span class="text-gradient">GROWTH</span> ENGINE',
                 heroDesc: "We don't just participate in the market. We architect market dominance. Deploying nuclear-grade digital strategies for elite brands across the MENA region.",
                 heroBtnPrimary: "View the Intelligence", heroBtnSecondary: "Initiate Mission",
@@ -365,7 +367,7 @@
                 switchLang: "Switch to Arabic"
             },
             ar: {
-                navHome: "الرئيسية", navAbout: "الكيان", navServices: "القدرات التكتيكية", navWork: "المهام", btnQuote: "نشر الفريق",
+                navHome: "الرئيسية", navAbout: "الكيان", navServices: "القدرات التكتيكية", navWork: "المهام", navPortfolio: "سابقة الأعمال", btnQuote: "نشر الفريق",
                 heroTitle: 'محرك <span class="text-gradient">نمو</span> مينافـيـرس',
                 heroDesc: "نحن لا ننافس في السوق، بل نصمم الهيمنة عليه. ننشر استراتيجيات رقمية بمستوى نووي للعلامات التجارية النخبوية في منطقة الشرق الأوسط وشمال أفريقيا.",
                 heroBtnPrimary: "عرض الاستخبارات", heroBtnSecondary: "ابدأ المهمة",
@@ -392,7 +394,7 @@
             }
         };
 
-        let currentLang = 'en';
+        let currentLang = localStorage.getItem('preferredLang') || 'en';
         const langToggle = document.getElementById('lang-toggle');
         const langToggleMobile = document.getElementById('lang-toggle-mobile-icon');
         const langToggleMenu = document.getElementById('lang-toggle-menu');
@@ -401,14 +403,15 @@
         const mobileMenu = document.getElementById('mobile-menu');
 
         function updateLanguage() {
+            localStorage.setItem('preferredLang', currentLang);
             const t = translations[currentLang];
             document.documentElement.lang = currentLang;
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.body.className = currentLang === 'ar' ? 'font-arabic overflow-x-hidden' : 'font-english overflow-x-hidden';
             
             const ids = [
-                'nav-home', 'nav-about', 'nav-services', 'nav-work', 'btn-quote', 
-                'm-nav-home', 'm-nav-about', 'm-nav-services', 'm-nav-work', 'm-btn-quote',
+                'nav-home', 'nav-about', 'nav-services', 'nav-work', 'nav-portfolio', 'btn-quote', 
+                'm-nav-home', 'm-nav-about', 'm-nav-services', 'm-nav-work', 'm-nav-portfolio', 'm-btn-quote',
                 'hero-title', 'hero-desc', 'hero-btn-primary', 'hero-btn-secondary', 
                 'about-tag', 'about-title', 'about-p1', 'about-p2', 
                 'svc-tag', 'services-title', 'services-desc', 
