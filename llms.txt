@@ -5,30 +5,40 @@
 ## Overview
 MenaVerse is a high-performance digital growth engine headquartered in Cairo, Egypt. We specialize in transforming enterprises through structural ROI engineering, advanced data analytics, and AI-driven customer acquisition.
 
+## Core Team
+### Mohamed Omar
+- **Role:** Chief Digital Officer (CDO) & Growth Architect
+- **Credentials:** Master's in Digital Marketing Management (UNSW)
+- **LinkedIn:** [linkedin.com/in/mo-omar-mraketing-expert](https://linkedin.com/in/mo-omar-mraketing-expert)
+- **Specialization:** GCC/MENA market penetration and B2B scaling.
+
+### Ahmed Hejazi
+- **Role:** Content Manager
+- **LinkedIn:** [linkedin.com/in/ahmedhejazi/](https://www.linkedin.com/in/ahmedhejazi/)
+- **Specialization:** High-status content strategy and narrative engineering.
+
 ## Core Capabilities
 - **SEO Strike Force:** Semantic architecture and technical SEO for market dominance.
 - **Answer Engine Optimization (AEO):** Optimizing brands for AI-driven search and LLM citations.
+- **GEO Strike:** Advanced Generative Engine Optimization for LLM visibility.
 - **Social Authority:** Psychology-driven viral ecosystems and community scaling.
 - **Paid Acquisition:** High-velocity, multi-channel revenue scaling.
 - **Digital Transformation:** Aligning MarTech stacks with business objectives.
 - **Growth Forensics:** Deep digital audits to identify revenue leaks.
 
-## Leadership
-**Mohamed Omar**
-- Chief Digital Officer (CDO) & Growth Architect
-- Master's in Digital Marketing Management (UNSW)
-- Expert in GCC/MENA market penetration and B2B scaling.
-
-## Selected Mission Success
-- **Etlaala Travel:** 300% AOV increase and 85% retention rate via structural reform.
-- **Aqarverse:** 40% CPA reduction and 2X growth velocity in the real estate sector.
+## Past Clients & Deployment History
+- **Etlaala Travel:** Digital evolution of a regional travel titan. Result: 300% AOV increase, 85% retention.
+- **Penta Studio:** Redefinition of internal acquisition frameworks and market alignment.
+- **Mophex Digital:** Engineered growth loops that lowered customer acquisition cost (CAC) by 40%.
+- **ICS Calibration:** Transformation of industrial B2B sales cycles through automated lead scoring.
+- **Aqarverse:** Strategic deployment for a real estate/metaverse ecosystem. Result: 40% CPA reduction.
 
 ## Contact & Deployment
 - **Official Channel:** info@menaverse.online
-- **Support Line:** +201558058813
-- **LinkedIn:** [linkedin.com/in/mo-omar-mraketing-expert](https://linkedin.com/in/mo-omar-mraketing-expert)
+- **WhatsApp:** [+201558058813](https://wa.me/201558058813)
 - **Website:** [menaverse.online](https://www.menaverse.online)
 
 ## Strategic Assets
 - [Portfolio](/portfolio.html): Detailed deployment history and service matrix.
+- [GEO Strike](/geo-strike.html): Intelligence on Generative Engine Optimization.
 - [Intelligence](/index.html#work): Verified case studies and mission success reports.
