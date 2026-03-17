@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MENAVERSE.ONLINE | The Growth Architect</title>
+    <title>MenaVerse | Regional Growth Architects</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,14 +14,14 @@
         :root {
             --font-en: 'Inter', sans-serif;
             --font-ar: 'Cairo', sans-serif;
-            --bg-color: #080808;
+            --bg-color: #050505;
             --text-color: #E5E5E5;
             --silver: #C0C0C0;
             --gray-dim: #444;
             --gray-light: #888;
             --accent: #ffffff;
             --card-bg: rgba(255, 255, 255, 0.02);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -51,11 +51,8 @@
         /* Background Effects */
         .bg-noise {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.05;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.03;
             pointer-events: none;
             z-index: 1;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -63,492 +60,280 @@
 
         .bg-gradient {
             position: fixed;
-            width: 60vw;
-            height: 60vw;
-            top: -20%;
+            width: 80vw;
+            height: 80vw;
+            top: -30%;
             left: -10%;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.08;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            filter: blur(120px);
+            opacity: 0.05;
+            background: radial-gradient(circle, #fff 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
-            animation: pulse 10s infinite alternate;
+            animation: pulse 15s infinite alternate;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.08; }
-            100% { transform: scale(1.1); opacity: 0.04; }
+            0% { transform: scale(1); opacity: 0.05; }
+            100% { transform: scale(1.2); opacity: 0.02; }
         }
 
         /* Utilities */
         .container {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         .section-padding {
-            padding: 10rem 0;
+            padding: 8rem 0;
         }
 
         .stroke-text {
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
             color: transparent;
         }
 
         /* Navigation */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1.5rem 3rem;
+            top: 0; width: 100%; z-index: 1000;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(20px);
-            background: rgba(8, 8, 8, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(5, 5, 5, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: white;
+            display: flex; align-items: center; gap: 0.75rem;
+            text-decoration: none; color: white;
         }
 
         .logo-box {
-            width: 40px;
-            height: 40px;
-            background: var(--text-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: black;
-            font-weight: 900;
-            font-size: 1.2rem;
-            box-shadow: 0 0 15px rgba(229, 229, 229, 0.2);
+            width: 35px; height: 35px;
+            background: white; color: black;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.1rem;
         }
 
         .brand-text {
-            font-size: 0.9rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            font-size: 0.85rem; font-weight: 800;
+            letter-spacing: 0.2em; text-transform: uppercase;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-        }
-
+        .nav-links { display: flex; gap: 2.5rem; }
         .nav-links a {
-            color: var(--gray-dim);
-            text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            color: var(--gray-dim); text-decoration: none;
+            font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
             transition: var(--transition);
         }
-
-        .nav-links a:hover {
-            color: white;
-        }
+        .nav-links a:hover { color: white; }
 
         .lang-toggle {
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 0.6rem 1.2rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.65rem; font-weight: 800;
             cursor: pointer;
             transition: var(--transition);
+            border-radius: 99px;
         }
-
-        .lang-toggle:hover {
-            background: white;
-            color: black;
-        }
+        .lang-toggle:hover { background: white; color: black; }
 
         /* Hero */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            min-height: 85vh;
+            display: flex; flex-direction: column;
             justify-content: center;
-            padding-top: 6rem;
+            padding-top: 5rem;
             position: relative;
             z-index: 10;
         }
 
         .tagline {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            display: flex; align-items: center; gap: 1rem;
+            margin-bottom: 1.5rem;
         }
-
-        .tagline span:first-child {
-            width: 3rem;
-            height: 1px;
-            background: var(--silver);
-        }
-
+        .tagline span:first-child { width: 2.5rem; height: 1px; background: var(--gray-dim); }
         .tagline span:last-child {
-            color: var(--gray-light);
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
+            color: var(--gray-light); font-size: 0.65rem;
+            font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 10vw, 9rem);
-            font-weight: 900;
-            line-height: 0.85;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-            letter-spacing: -0.04em;
+            font-size: clamp(3.5rem, 12vw, 8.5rem);
+            font-weight: 900; line-height: 0.85;
+            text-transform: uppercase; margin-bottom: 3.5rem;
+            letter-spacing: -0.05em;
         }
 
         .hero-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 3rem;
-            flex-wrap: wrap;
-            gap: 2rem;
+            display: flex; justify-content: space-between; align-items: flex-end;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 3rem; flex-wrap: wrap; gap: 2rem;
         }
 
         .hero-desc {
-            max-width: 500px;
-            font-size: 1.2rem;
-            color: #999;
-            font-weight: 300;
+            max-width: 550px; font-size: 1.1rem;
+            color: #888; font-weight: 400; line-height: 1.8;
         }
 
         .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 1.5rem;
-            background: white;
-            color: black;
-            padding: 1.5rem 3rem;
-            text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
+            display: inline-flex; align-items: center; gap: 1.2rem;
+            background: white; color: black;
+            padding: 1.2rem 2.8rem; text-decoration: none;
+            font-weight: 800; text-transform: uppercase;
+            font-size: 0.7rem; letter-spacing: 0.1em;
             transition: var(--transition);
+            border-radius: 2px;
         }
-
-        .cta-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-        }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(255,255,255,0.05); }
 
         /* Strategy Section */
         .strategy-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
+            display: grid; grid-template-columns: 1fr 2fr; gap: 4rem;
         }
 
         .section-label {
-            font-family: monospace;
-            color: var(--gray-dim);
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            position: sticky;
-            top: 120px;
+            font-family: monospace; color: var(--gray-dim);
+            font-size: 0.7rem; letter-spacing: 0.3em;
+            text-transform: uppercase; position: sticky; top: 120px;
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            line-height: 0.95;
-            margin-bottom: 4rem;
-            text-transform: uppercase;
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1; margin-bottom: 4rem; text-transform: uppercase;
+            font-weight: 900; tracking: -0.02em;
         }
 
         .quote-box {
-            padding: 4rem;
-            background: var(--card-bg);
-            border-left: 2px solid white;
-            position: relative;
+            padding: 3.5rem; background: rgba(255,255,255,0.01);
+            border-left: 2px solid white; position: relative;
         }
-
-        body[dir="rtl"] .quote-box {
-            border-left: none;
-            border-right: 2px solid white;
-        }
+        body[dir="rtl"] .quote-box { border-left: none; border-right: 2px solid white; }
 
         .quote-text {
-            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-            font-weight: 300;
-            font-style: italic;
-            margin-bottom: 3rem;
-            color: white;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-weight: 300; font-style: italic;
+            margin-bottom: 3rem; color: #ddd;
         }
 
         .author-info {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
+            display: flex; align-items: center; gap: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem;
         }
-
         .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
+            width: 45px; height: 45px; background: white;
+            color: black; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: 900;
         }
 
         /* Clients List */
-        .client-list {
-            margin-top: 4rem;
-        }
-
         .client-row {
-            display: grid;
-            grid-template-columns: 1fr 2fr 2fr auto;
-            gap: 2rem;
-            padding: 3rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            align-items: center;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(30px);
+            display: grid; grid-template-columns: 1fr 2.5fr 2fr auto;
+            gap: 2rem; padding: 3.5rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            align-items: center; transition: var(--transition);
+            opacity: 0; transform: translateY(30px);
         }
-
-        .client-row.reveal {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .client-row:hover {
-            background: rgba(255, 255, 255, 0.01);
-        }
+        .client-row.reveal { opacity: 1; transform: translateY(0); }
+        .client-row:hover { background: rgba(255, 255, 255, 0.01); }
 
         .status-badge {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            color: var(--gray-light);
-            width: fit-content;
+            font-size: 0.6rem; text-transform: uppercase;
+            letter-spacing: 0.15em; background: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 1rem; border-radius: 20px;
+            color: #666; font-weight: 700;
         }
 
         .client-name {
-            font-size: 2.2rem;
-            font-weight: 800;
-            text-transform: uppercase;
+            font-size: 2.2rem; font-weight: 900; text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
 
         .client-kpi {
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: var(--gray-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 0.5rem;
-            display: block;
+            font-size: 0.65rem; font-weight: 800; color: #555;
+            text-transform: uppercase; letter-spacing: 0.2em;
+            margin-top: 0.5rem; display: block;
         }
 
         /* Services Grid */
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 1.5rem;
         }
 
         .service-card {
-            padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: transparent;
-            transition: transform 0.1s ease-out, border-color 0.4s ease;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            padding: 3.5rem; border: 1px solid rgba(255, 255, 255, 0.05);
+            background: transparent; transition: var(--transition);
+            position: relative; cursor: pointer;
+            display: flex; flex-direction: column;
         }
-
         .service-card:hover {
-            border-color: rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.01);
-        }
-
-        .service-card.highlight {
             border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.01);
+            transform: translateY(-5px);
         }
 
         .card-icon {
-            width: 50px;
-            height: 50px;
+            width: 48px; height: 48px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.03);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-            transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 2.5rem; transition: var(--transition);
+            color: #666;
         }
-
-        .service-card:hover .card-icon {
-            background: white;
-            color: black;
-        }
+        .service-card:hover .card-icon { background: white; color: black; border-color: white; }
 
         .card-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+            font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem;
+            text-transform: uppercase; letter-spacing: -0.01em;
         }
+        .card-desc { font-size: 0.85rem; color: #777; margin-bottom: 2.5rem; line-height: 1.7; }
 
-        .card-desc {
-            font-size: 0.9rem;
-            color: var(--gray-light);
-            min-height: 4.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .card-points {
-            list-style: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 2rem;
-        }
-
+        .card-points { list-style: none; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; }
         .card-points li {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gray-dim);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: var(--transition);
+            font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.15em; color: #444; margin-bottom: 0.8rem;
+            display: flex; align-items: center; gap: 0.75rem;
         }
-
-        .service-card:hover .card-points li {
-            color: white;
-        }
-
-        .card-points li::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .highlight-dot {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 15px white;
-            animation: blink 2s infinite;
-        }
-
-        body[dir="rtl"] .highlight-dot {
-            right: auto;
-            left: 1.5rem;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
+        .service-card:hover .card-points li { color: #aaa; }
+        .card-points li::before { content: ''; width: 4px; height: 4px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; }
 
         /* Footer */
         footer {
-            padding: 8rem 0 4rem;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
+            padding: 10rem 0 4rem; position: relative;
+            overflow: hidden; text-align: center;
         }
-
         .footer-bg-text {
-            position: absolute;
-            bottom: -5%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 28vw;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.01);
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 0;
+            position: absolute; bottom: -5%; left: 50%; transform: translateX(-50%);
+            font-size: 25vw; font-weight: 900; color: rgba(255, 255, 255, 0.01);
+            white-space: nowrap; pointer-events: none; z-index: 0;
         }
-
-        .footer-title {
-            font-size: clamp(3rem, 10vw, 8rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 2rem;
-        }
+        .footer-title { font-size: clamp(3rem, 10vw, 7.5rem); font-weight: 900; text-transform: uppercase; line-height: 0.9; margin-bottom: 2.5rem; }
 
         .footer-links {
-            margin-top: 8rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--gray-dim);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            position: relative;
-            z-index: 10;
+            margin-top: 8rem; padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex; justify-content: space-between; align-items: center;
+            color: #444; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em;
+            position: relative; z-index: 10;
         }
+        .footer-links a { color: #444; text-decoration: none; transition: var(--transition); }
+        .footer-links a:hover { color: white; }
 
-        .footer-links a {
-            color: var(--gray-dim);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        /* Mobile Adjustments */
+        /* Mobile */
         @media (max-width: 768px) {
-            nav { padding: 1.2rem; }
             .nav-links { display: none; }
             .strategy-grid { grid-template-columns: 1fr; }
-            .section-label { position: relative; top: 0; margin-bottom: 2rem; }
-            .client-row { grid-template-columns: 1fr; gap: 1rem; }
-            .hero-footer { flex-direction: column; align-items: flex-start; }
-            .footer-links { flex-direction: column; gap: 1.5rem; }
+            .section-label { position: relative; top: 0; margin-bottom: 1.5rem; }
+            .client-row { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 1rem; }
+            .footer-links { flex-direction: column; gap: 2rem; }
         }
-
     </style>
 </head>
 <body>
@@ -561,16 +346,16 @@
         <a href="index.html" class="nav-logo">
             <div class="logo-box">M</div>
             <div class="brand-text">
-                <span id="txt-brand">MENAVERSE</span><span id="txt-suffix" style="color: var(--gray-light);">.ONLINE</span>
+                <span id="txt-brand">MENAVERSE</span><span id="txt-suffix" style="color: var(--gray-dim);">.ONLINE</span>
             </div>
         </a>
         <div class="nav-links">
-            <a href="index.html#vision" data-key="nav-vision">Strategy</a>
-            <a href="index.html#history" data-key="nav-history">Clients</a>
-            <a href="index.html#blueprint" data-key="nav-blueprint">Services</a>
-            <a href="index.html#contact" data-key="nav-contact">Audit</a>
+            <a href="#vision" data-key="nav-vision">The Intelligence</a>
+            <a href="#history" data-key="nav-history">Deployments</a>
+            <a href="#blueprint" data-key="nav-blueprint">Frameworks</a>
+            <a href="#contact" data-key="nav-contact">Initiate</a>
         </div>
-        <button class="lang-toggle" onclick="toggleLanguage()" id="btn-lang">عربي</button>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="btn-lang">AR</button>
     </nav>
 
     <div class="container">
@@ -584,10 +369,10 @@
                 THE GROWTH<br><span class="stroke-text hero-sub" id="hero-subtitle">ARCHITECTS</span>
             </h1>
             <div class="hero-footer">
-                <p class="hero-desc" id="hero-desc">Transforming MENA-based enterprises through structural ROI engineering and AI-driven acquisition engines.</p>
+                <p class="hero-desc" id="hero-desc">Scaling elite MENA enterprises through structural ROI engineering and behavioral acquisition engines. We don't just market; we build market dominance.</p>
                 <a href="#blueprint" class="cta-btn">
-                    <span id="hero-cta">Explore Framework</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    <span id="hero-cta">View Framework</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
             </div>
         </section>
@@ -595,16 +380,16 @@
         <!-- Strategy Section -->
         <section id="vision" class="section-padding">
             <div class="strategy-grid">
-                <div class="section-label" id="label-01">01 / Philosophy</div>
+                <div class="section-label" id="label-01">01 / PHILOSOPHY</div>
                 <div>
-                    <h2 class="section-title" id="strat-title">Beyond Marketing.<br><span class="stroke-text">Growth Engineering.</span></h2>
+                    <h2 class="section-title" id="strat-title">Beyond Campaigns.<br><span class="stroke-text">Empire Building.</span></h2>
                     <div class="quote-box">
-                        <p class="quote-text" id="strat-quote">"We don't launch campaigns; we deploy systems. Growth is a structural output of well-engineered digital infrastructure."</p>
+                        <p class="quote-text" id="strat-quote">"Growth in the MENA region is a structural output. We don't launch ads; we deploy integrated digital infrastructures designed for absolute scale."</p>
                         <div class="author-info">
                             <div class="author-avatar">MO</div>
-                            <div style="text-align: left;" id="author-text">
-                                <p style="font-weight: 800; font-size: 0.9rem; color: white;">Mohamed Omar</p>
-                                <p style="color: var(--gray-dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;" id="strat-detail">Focusing on high-stakes B2B & TravelTech in GCC</p>
+                            <div id="author-text">
+                                <p style="font-weight: 800; font-size: 0.85rem; color: white;">Mohamed Omar</p>
+                                <p style="color: #555; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em;" id="strat-detail">Regional Growth Strategist | B2B & TravelTech Expert</p>
                             </div>
                         </div>
                     </div>
@@ -614,9 +399,9 @@
 
         <!-- Clients Section -->
         <section id="history" class="section-padding">
-            <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem; margin-bottom: 4rem;">
-                <div class="section-label" style="position: relative; top: 0; margin-bottom: 1.5rem;" id="label-02">02 / Deployments</div>
-                <h2 class="section-title" style="margin-bottom: 0;" id="clients-title">Past Clients</h2>
+            <div style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 2rem; margin-bottom: 4rem;">
+                <div class="section-label" style="position: relative; top: 0; margin-bottom: 1rem;" id="label-02">02 / DEPLOYMENTS</div>
+                <h2 class="section-title" style="margin-bottom: 0;" id="clients-title">Success Intelligence</h2>
             </div>
             <div class="client-list" id="client-container">
                 <!-- Injected via JS -->
@@ -626,8 +411,8 @@
         <!-- Services Section -->
         <section id="blueprint" class="section-padding">
             <div style="margin-bottom: 5rem;">
-                <div class="section-label" style="position: relative; top: 0; margin-bottom: 1.5rem;" id="label-03">03 / Services</div>
-                <h2 class="section-title" id="services-title">Mission Critical Operations</h2>
+                <div class="section-label" style="position: relative; top: 0; margin-bottom: 1rem;" id="label-03">03 / CAPABILITIES</div>
+                <h2 class="section-title" id="services-title">Tactical Operations</h2>
             </div>
             <div class="services-grid" id="services-container">
                 <!-- Injected via JS -->
@@ -640,18 +425,20 @@
         <div class="footer-bg-text">MENAVERSE</div>
         <div class="container" style="position: relative; z-index: 1;">
             <h2 class="footer-title" id="footer-title">Ready for Deployment?</h2>
-            <p style="color: var(--gray-dim); font-size: 1.4rem; margin-bottom: 4rem;" id="footer-desc">Secure a strategic audit for your digital infrastructure.</p>
+            <p style="color: #666; font-size: 1.3rem; margin-bottom: 4.5rem; font-weight: 300;" id="footer-desc">Secure a strategic audit for your digital empire.</p>
             
-            <a href="https://wa.me/201558058813" class="cta-btn" style="background: white; color: black; padding: 2rem 5rem;">
+            <a href="https://wa.me/201558058813" class="cta-btn" style="padding: 1.8rem 4.5rem;">
                 <span id="footer-cta">Initialize Audit</span>
             </a>
 
             <div class="footer-links">
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                    <span id="footer-copy">Menaverse.online © 2026. All Rights Reserved.</span>
-                    <a href="https://www.menaverse.online" target="_blank" style="color: white; text-transform: lowercase;">www.menaverse.online</a>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <span id="footer-copy">© 2026 MENAVERSE ONLINE. REGIONAL GROWTH ARCHITECTS.</span>
                 </div>
-                <a href="https://www.linkedin.com/company/menaverse-online/" target="_blank" style="font-weight: 800; color: white;">LINKEDIN ↗</a>
+                <div style="display: flex; gap: 3rem;">
+                    <a href="https://www.linkedin.com/company/menaverse-online/" target="_blank">LINKEDIN ↗</a>
+                    <a href="mailto:info@menaverse.online">EMAIL ↗</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -664,107 +451,98 @@
         <symbol id="icon-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></symbol>
         <symbol id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
         <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
-        <symbol id="icon-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
-        <symbol id="icon-brain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></symbol>
-        <symbol id="icon-workflow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h6"/><path d="M15 13l-3-3 3-3"/></symbol>
     </svg>
 
     <script>
         const content = {
             en: {
-                nav: { vision: 'Strategy', history: 'Clients', blueprint: 'Services', contact: 'Audit' },
+                nav: { vision: 'The Intelligence', history: 'Deployments', blueprint: 'Frameworks', contact: 'Initiate' },
                 hero: {
                     tag: 'Strategic Growth Operations',
                     title: 'THE GROWTH',
-                    subtitle: 'ARCHITECT',
-                    desc: 'Transforming MENA-based enterprises through structural ROI engineering and AI-driven acquisition engines.',
-                    cta: 'Explore Framework'
+                    subtitle: 'ARCHITECTS',
+                    desc: 'Scaling elite MENA enterprises through structural ROI engineering and behavioral acquisition engines. We don\'t just market; we build digital empires.',
+                    cta: 'View Framework'
                 },
                 strategy: {
-                    label: '01 / Philosophy',
-                    title: 'Beyond Marketing.',
-                    title2: 'Growth Engineering.',
-                    quote: '"We don\'t launch campaigns; we deploy systems. Growth is a structural output of well-engineered digital infrastructure."',
-                    detail: 'Focusing on high-stakes B2B & TravelTech in GCC'
+                    label: '01 / PHILOSOPHY',
+                    title: 'Beyond Campaigns.',
+                    title2: 'Empire Building.',
+                    quote: '"Growth in the MENA region is a structural output. We don\'t launch ads; we deploy integrated digital infrastructures designed for absolute scale."',
+                    detail: 'Regional Growth Strategists | B2B & TravelTech Experts'
                 },
                 history: {
-                    label: '02 / Deployments',
-                    title: 'Past Clients',
+                    label: '02 / DEPLOYMENTS',
+                    title: 'Success Intelligence',
                     items: [
-                        { company: "Etlaala Travel", status: "Past Client", impact: "Digital Transformation", desc: "Orchestrated the digital evolution of a travel titan.", kpi: "Structural Reform" },
-                        { company: "Penta Studio", status: "Past Client", impact: "Client Acquisition", desc: "Redefined the internal acquisition framework.", kpi: "Market Alignment" },
-                        { company: "Mophex Digital", status: "Past Client", impact: "Viral Lead Gen", desc: "Engineered growth loops that lowered CAC by 40%.", kpi: "AEO / Growth" },
-                        { company: "ICS Calibration", status: "Past Client", impact: "B2B Funnels", desc: "Transformed industrial B2B sales cycles.", kpi: "B2B Strategy" }
+                        { company: "Etlaala Travel", status: "Active Deployment", impact: "Digital Transformation", desc: "Orchestrating the digital evolution of a regional travel giant across Saudi & Egypt.", kpi: "Market Capture" },
+                        { company: "Penta Studio", status: "Success Verified", impact: "Authority Scaling", desc: "Engineered a high-status lead generation engine for premium creative services.", kpi: "ROI Optimization" },
+                        { company: "Mophex Digital", status: "Success Verified", impact: "Behavioral Acquisition", desc: "Deployed viral growth loops and semantic SEO systems reducing CAC by 40%.", kpi: "Growth Loops" },
+                        { company: "ICS Calibration", status: "Active Deployment", impact: "B2B Sales Systems", desc: "Transformed industrial B2B cycles through advanced funnel architectures.", kpi: "Systems Audit" }
                     ]
                 },
                 frameworks: {
-                    label: '03 / Services',
-                    title: 'Mission Critical Operations',
+                    label: '03 / CAPABILITIES',
+                    title: 'Tactical Operations',
                     items: [
-                        { title: 'SEO Strike Force', desc: "We don't just rank; we build impenetrable digital fortresses through advanced semantic architecture.", points: ['Authority Audits', 'Topical Moats', 'Technical SEO'], icon: 'shield' },
-                        { title: 'Social Authority', desc: 'Transforming standard brands into regional obsessions through psychology-driven viral ecosystems.', points: ['Viral Scripting', 'Community Scaling', 'Influencer Blitz'], icon: 'flame', highlight: true },
-                        { title: 'Paid Acquisition', desc: 'High-velocity, multi-channel funnels designed exclusively for aggressive revenue scaling.', points: ['Funnel Arbitrage', 'Ad Vampire Logic', 'Scale Management'], icon: 'mouse', highlight: true },
-                        { title: 'Cinematic Production', desc: 'High-status visual storytelling that elevates brand perception and dictates market premium.', points: ['Brand Films', 'Social Content', 'Event Coverage'], icon: 'video' },
+                        { title: 'Authority SEO', desc: "We don't just rank; we build digital fortresses through semantic architecture and regional moats.", points: ['Authority Audits', 'Topical Moats', 'Technical Mastery'], icon: 'shield' },
+                        { title: 'Social Leadership', desc: 'Transforming brands into regional cultural icons through viral storytelling and community engineering.', points: ['Viral Scripting', 'Community Scaling', 'Influencer Blitz'], icon: 'flame' },
+                        { title: 'Precision Ads', desc: 'High-velocity, multi-channel performance funnels engineered for aggressive revenue scaling.', points: ['Ad Arbitrage', 'Conversion Logic', 'Scale Management'], icon: 'mouse' },
+                        { title: 'Cinematic Media', desc: 'High-status visual storytelling that elevates brand perception and dictates market premium.', points: ['Brand Films', 'Social Content', 'Event Coverage'], icon: 'video' },
                         { title: 'Growth Forensics', desc: 'Deep-tissue digital audits that identify hidden revenue leaks and untapped market monopolies.', points: ['UX/UI Forensics', 'Revenue Analysis', 'Competitor Recon'], icon: 'eye' },
-                        { title: 'Bespoke Architectures', desc: 'Custom AI-integrated growth engines tailored for mission-critical objectives.', points: ['AI Integrations', 'Custom Funnels', 'Workflow SOPs'], icon: 'settings' },
-                        { title: 'Performance ROI', desc: 'Scalable acquisition engines backed by hard data and MENA-specific market intelligence.', points: ['Attribution Modeling', 'LTV Optimization'], icon: 'trend' },
-                        { title: 'AEO / LLM SEO', desc: 'Dominating the Answer Engine era. Getting brands cited by AI and ranked by search engines.', points: ['LLM Optimization', 'Semantic Authority'], icon: 'brain' },
-                        { title: 'MarTech Alignment', desc: 'Aligning marketing technology with business goals for seamless digital-first operations.', points: ['Stack Audits', 'Process Automation'], icon: 'workflow' }
+                        { title: 'Custom Architectures', desc: 'Bespoke AI-integrated growth engines tailored for mission-critical regional objectives.', points: ['AI Integrations', 'Custom Funnels', 'Workflow SOPs'], icon: 'settings' }
                     ]
                 },
                 footer: {
                     title: 'Ready for Deployment?',
-                    desc: 'Secure a strategic audit for your digital infrastructure.',
+                    desc: 'Secure a strategic audit for your digital empire.',
                     btn: 'Initialize Audit',
-                    copy: 'Menaverse.online © 2026. All Rights Reserved.'
+                    copy: '© 2026 MENAVERSE ONLINE. REGIONAL GROWTH ARCHITECTS.'
                 }
             },
             ar: {
-                nav: { vision: 'الاستراتيجية', history: 'سابقة الأعمال', blueprint: 'الخدمات', contact: 'التقييم' },
+                nav: { vision: 'الاستخبارات الرقمية', history: 'المهام المنفذة', blueprint: 'أطر العمل', contact: 'تواصل معنا' },
                 hero: {
                     tag: 'عمليات نمو استراتيجي',
-                    title: 'مـعمـاريـون',
-                    subtitle: 'الـنـمـو الـرقـمـي',
-                    desc: 'بنطور مستقبل الشركات في المنطقة عن طريق هندسة الـ ROI وبناء أنظمة استحواذ ذكية بتعتمد على الـ AI.',
-                    cta: 'اكتشف إطار العمل'
+                    title: 'مـعمـاريـو',
+                    subtitle: 'الـنـمـو الإقليمي',
+                    desc: 'نعمل على توسع الشركات النخبوية في المنطقة من خلال هندسة العائد الاستثماري (ROI) وأنظمة الاستحواذ السلوكي. نحن لا نسوق؛ نحن نبني سيادة سوقية.',
+                    cta: 'عرض أطر العمل'
                 },
                 strategy: {
                     label: '٠١ / الفلسفة',
-                    title: 'أبعد من مجرد تسويق.',
-                    title2: 'إحنا بنهندس النمو.',
-                    quote: '"النمو مش بييجي بالصدفة، ده نتيجة نظام بنبنيه صح. إحنا مش بنعمل مجرد حملات، إحنا بنبني أنظمة رقمية متكاملة."',
-                    detail: 'تركيزنا الأساسي على المشروعات الكبيرة وتكنولوجيا السفر في الخليج.'
+                    title: 'تجاوز الحملات.',
+                    title2: 'بناء الإمبراطوريات.',
+                    quote: '"النمو في الشرق الأوسط هو مخرج هيكلي. نحن لا نطلق إعلانات؛ نحن ننشر بنيات تحتية رقمية متكاملة مصممة للهيمنة المطلقة."',
+                    detail: 'استراتيجي نمو إقليمي | خبير B2B وتكنولوجيا السفر'
                 },
                 history: {
-                    label: '٠٢ / سابقة الأعمال',
-                    title: 'عملاء اشتغلنا معاهم',
+                    label: '٠٢ / المهام المنفذة',
+                    title: 'استخبارات النجاح',
                     items: [
-                        { company: "إطلالة للسفر", status: "عميل سابق", impact: "تحول رقمي وتوسع خليجي", desc: "قدنا عملية التحول الرقمي لواحد من كبار قطاع السفر في المنطقة.", kpi: "إصلاح هيكلي شامل" },
-                        { company: "Penta Studio", status: "عميل سابق", impact: "استحواذ عملاء", desc: "أعدنا صياغة نظام جذب العملاء الداخلي للوكالة.", kpi: "مواءمة السوق" },
-                        { company: "Mophex Digital", status: "عميل سابق", impact: "جذب عملاء فيروسي (Viral)", desc: "بنينا أنظمة نمو قدرت تنزل تكلفة الاستحواذ بنسبة ٤٠٪.", kpi: "اختراق النمو / AEO" },
-                        { company: "ICS Calibration", status: "عميل سابق", impact: "مبيعات الـ B2B", desc: "حولنا دورة مبيعات الـ B2B الصناعية عن طريق أتمتة تصنيف العملاء.", kpi: "استراتيجية B2B" }
+                        { company: "إطلالة للسفر", status: "مهمة نشطة", impact: "تحول رقمي شامل", desc: "قيادة التطور الرقمي لعملاق السفر في المنطقة عبر السوق السعودي والمصري.", kpi: "الاستحواذ السوقي" },
+                        { company: "بينتا ستوديو", status: "تم التحقق", impact: "رفع سلطة البراند", desc: "هندسة محرك جذب عملاء رفيع المستوى للخدمات الإبداعية الفاخرة.", kpi: "تحسين العائد" },
+                        { company: "موفيكس ديجيتال", status: "تم التحقق", impact: "الاستحواذ السلوكي", desc: "نشر حلقات نمو فيروسية وأنظمة SEO دلالية خفضت تكلفة الاستحواذ بنسبة ٤٠٪.", kpi: "حلقات النمو" },
+                        { company: "ICS Calibration", status: "مهمة نشطة", impact: "أنظمة مبيعات B2B", desc: "تحويل دورات المبيعات الصناعية المعقدة من خلال أقماع مبيعات متطورة.", kpi: "تدقيق الأنظمة" }
                     ]
                 },
                 frameworks: {
-                    label: '٠٣ / مصفوفة الخدمات',
-                    title: 'عمليات المهام الحساسة',
+                    label: '٠٣ / القدرات التكتيكية',
+                    title: 'العمليات الميدانية',
                     items: [
-                        { title: 'قوة الـ SEO الضاربة', desc: 'مش بس بنطلع في النتايج؛ إحنا بنبني حصون رقمية منيعة من خلال هندسة المحتوى الدلالية.', points: ['تدقيق سلطة النطاق', 'بناء الخنادق الموضوعية', 'SEO تقني متقدم'], icon: 'shield' },
-                        { title: 'الهيمنة الاجتماعية', desc: 'بنحول البراندات العادية لهوس إقليمي من خلال أنظمة فيروسية مبنية على علم النفس السلوكي.', points: ['كتابة سيناريو فيروسي', 'توسيع نطاق المجتمعات', 'حملات مؤثرين هجومية'], icon: 'flame', highlight: true },
-                        { title: 'الاستحواذ الممول المكثف', desc: 'أنظمة بيع سريعة ومتعددة القنوات، متصممة خصيصاً لمضاعفة الإيرادات بمعدلات هجومية.', points: ['مراجحة قنوات البيع', 'منطق الـ Ad Vampire', 'إدارة التوسع المليوني'], icon: 'mouse', highlight: true },
-                        { title: 'الإنتاج السينمائي', desc: 'سرد قصصي مرئي عالي المستوى بيرفع قيمة البراند وبيخليك تفرض السعر اللي تستحقه في السوق.', points: ['أفلام هوية الشركات', 'محتوى اجتماعي سينمائي', 'تغطية فعاليات كبرى'], icon: 'video' },
-                        { title: 'التدقيق الجنائي للنمو', desc: 'فحص رقمي دقيق بيكشف أماكن تسريب الأرباح وفرص الهيمنة غير المستغلة في السوق.', points: ['تحقيق تجربة المستخدم UX', 'تحليل ثغرات الأرباح', 'استطلاع المنافسين'], icon: 'eye' },
-                        { title: 'أنظمة تقنية مفصلة', desc: 'محركات نمو مدمجة بالذكاء الاصطناعي، متفصلة بالظبط على أهدافك الحساسة.', points: ['تكاملات الـ AI', 'أقماع تحويل مخصصة', 'إجراءات تشغيل SOP'], icon: 'settings' },
-                        { title: 'هندسة الـ ROI', desc: 'محركات استحواذ مبنية على بيانات دقيقة وفهم عميق لسوق الشرق الأوسط.', points: ['نمذجة التتبع الرقمي', 'تحسين القيمة الحياتية'], icon: 'trend' },
-                        { title: 'السيادة في عصر الـ AI', desc: 'السيطرة على محركات الإجابة (AEO). بنخلي البراند بتاعك هو الإجابة الأولى للذكاء الاصطناعي.', points: ['تحسين نماذج الـ LLM', 'بناء السلطة الدلالية'], icon: 'brain' },
-                        { title: 'تنسيق الـ MarTech', desc: 'ربط تكنولوجيا التسويق بأهداف البيع عشان تضمن انسيابية العمليات.', points: ['تدقيق الأنظمة التقنية', 'أتمتة العمليات المعقدة'], icon: 'workflow' }
+                        { title: 'سلطة الـ SEO', desc: 'نحن لا نتصدر النتائج فحسب؛ بل نبني قلاعاً رقمية من خلال الهندسة الدلالية والخنادق الموضوعية.', points: ['تدقيق السلطة', 'بناء الخنادق', 'الإتقان التقني'], icon: 'shield' },
+                        { title: 'الريادة الاجتماعية', desc: 'تحويل العلامات التجارية إلى أيقونات ثقافية إقليمية من خلال أنظمة فيروسية مدفوعة بعلم النفس.', points: ['السيناريو الفيروسي', 'توسيع المجتمعات', 'حملات المؤثرين'], icon: 'flame' },
+                        { title: 'الإعلانات الدقيقة', desc: 'قنوات أداء عالية السرعة مصممة خصيصاً لمضاعفة الإيرادات بمعدلات هجومية.', points: ['مراجحة القنوات', 'منطق التحويل', 'إدارة التوسع'], icon: 'mouse' },
+                        { title: 'الإنتاج السينمائي', desc: 'سرد قصصي مرئي عالي المستوى يرفع قيمة علامتك التجارية ويفرض سيادتها في السوق.', points: ['أفلام البراند', 'محتوى اجتماعي', 'تغطية الفعاليات'], icon: 'video' },
+                        { title: 'استخبارات النمو', desc: 'تدقيقات رقمية عميقة تكشف عن تسريبات الإيرادات الخفية وفرص احتكار السوق.', points: ['الطب الشرعي للـ UX', 'تحليل الإيرادات', 'استطلاع المنافسين'], icon: 'eye' },
+                        { title: 'الأنظمة المخصصة', desc: 'محركات نمو مدمجة بالذكاء الاصطناعي، مصممة خصيصاً لتحقيق الأهداف الإقليمية الحرجة.', points: ['تكامل الـ AI', 'أقماع مخصصة', 'أدلة العمل SOP'], icon: 'settings' }
                     ]
                 },
                 footer: {
                     title: 'جاهز نبدأ التنفيذ؟',
-                    desc: 'احجز تقييم استراتيجي لبنيتك الرقمية دلوقتي.',
+                    desc: 'احجز تقييم استراتيجي لإمبراطوريتك الرقمية الآن.',
                     btn: 'ابدأ التقييم الفني',
-                    copy: 'Menaverse.online © ٢٠٢٦. جميع الحقوق محفوظة.'
+                    copy: '© ٢٠٢٦ مينافـيـرس أونلاين. معماريو النمو الإقليمي.'
                 }
             }
         };
@@ -778,42 +556,40 @@
         }
 
         function render() {
-            localStorage.setItem('preferredLang', currentLang);
             const t = content[currentLang];
             const isAr = currentLang === 'ar';
             document.body.dir = isAr ? 'rtl' : 'ltr';
 
-            // Static elements
-            document.getElementById('btn-lang').innerText = isAr ? 'EN' : 'عربي';
-            document.getElementById('hero-tag').innerText = t.hero.tag;
-            document.getElementById('hero-title').innerHTML = `${t.hero.title}<br><span class="stroke-text hero-sub">${t.hero.subtitle}</span>`;
-            document.getElementById('hero-desc').innerText = t.hero.desc;
-            document.getElementById('hero-cta').innerText = t.hero.cta;
-            
-            document.getElementById('label-01').innerText = t.strategy.label;
-            document.getElementById('strat-title').innerHTML = `${t.strategy.title}<br><span class="stroke-text">${t.strategy.title2}</span>`;
-            document.getElementById('strat-quote').innerText = t.strategy.quote;
-            document.getElementById('strat-detail').innerText = t.strategy.detail;
-            
-            document.getElementById('label-02').innerText = t.history.label;
-            document.getElementById('clients-title').innerText = t.history.title;
-            
-            document.getElementById('label-03').innerText = t.frameworks.label;
-            document.getElementById('services-title').innerText = t.frameworks.title;
-            
-            document.getElementById('footer-title').innerText = t.footer.title;
-            document.getElementById('footer-desc').innerText = t.footer.desc;
-            document.getElementById('footer-cta').innerText = t.footer.btn;
-            document.getElementById('footer-copy').innerText = t.footer.copy;
-
-            // Nav links
-            document.querySelectorAll('[data-key^="nav-"]').forEach(el => {
+            // Nav
+            document.getElementById('btn-lang').innerText = isAr ? 'EN' : 'AR';
+            document.querySelectorAll('.nav-links a').forEach(el => {
                 const key = el.getAttribute('data-key').split('-')[1];
                 el.innerText = t.nav[key];
             });
 
-            // Author text alignment
-            document.getElementById('author-text').style.textAlign = isAr ? 'right' : 'left';
+            // Hero
+            document.getElementById('hero-tag').innerText = t.hero.tag;
+            document.getElementById('hero-title').innerHTML = `${t.hero.title}<br><span class="stroke-text hero-sub">${t.hero.subtitle}</span>`;
+            document.getElementById('hero-desc').innerText = t.hero.desc;
+            document.getElementById('hero-cta').innerText = t.hero.cta;
+
+            // Strategy
+            document.getElementById('label-01').innerText = t.strategy.label;
+            document.getElementById('strat-title').innerHTML = `${t.strategy.title}<br><span class="stroke-text">${t.strategy.title2}</span>`;
+            document.getElementById('strat-quote').innerText = t.strategy.quote;
+            document.getElementById('strat-detail').innerText = t.strategy.detail;
+
+            // Sections
+            document.getElementById('label-02').innerText = t.history.label;
+            document.getElementById('clients-title').innerText = t.history.title;
+            document.getElementById('label-03').innerText = t.frameworks.label;
+            document.getElementById('services-title').innerText = t.frameworks.title;
+
+            // Footer
+            document.getElementById('footer-title').innerText = t.footer.title;
+            document.getElementById('footer-desc').innerText = t.footer.desc;
+            document.getElementById('footer-cta').innerText = t.footer.btn;
+            document.getElementById('footer-copy').innerText = t.footer.copy;
 
             // Render Clients
             const clientContainer = document.getElementById('client-container');
@@ -826,10 +602,6 @@
                     </div>
                     <div>
                         <p class="hero-desc" style="font-size: 0.9rem; max-width: none;">${item.desc}</p>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--gray-dim); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem;">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                            ${item.impact}
-                        </div>
                     </div>
                     <div style="opacity: 0.3">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
@@ -840,10 +612,9 @@
             // Render Services
             const servicesContainer = document.getElementById('services-container');
             servicesContainer.innerHTML = t.frameworks.items.map(item => `
-                <div class="service-card ${item.highlight ? 'highlight' : ''}" onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
-                    ${item.highlight ? '<div class="highlight-dot"></div>' : ''}
+                <div class="service-card">
                     <div class="card-icon">
-                        <svg width="24" height="24"><use href="#icon-${item.icon}"/></svg>
+                        <svg width="22" height="22"><use href="#icon-${item.icon}"/></svg>
                     </div>
                     <h3 class="card-title">${item.title}</h3>
                     <p class="card-desc">${item.desc}</p>
@@ -856,41 +627,16 @@
             initIntersectionObserver();
         }
 
-        // --- Interactions ---
-
         function initIntersectionObserver() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('reveal');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('reveal');
                 });
             }, { threshold: 0.1 });
-
             document.querySelectorAll('.client-row').forEach(el => observer.observe(el));
         }
 
-        function handleTilt(e, card) {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = ((y - centerY) / centerY) * -5;
-            const rotateY = ((x - centerX) / centerX) * 5;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        }
-
-        function resetTilt(card) {
-            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-        }
-
-        // Initialize
         window.onload = render;
-
     </script>
 </body>
 </html>
