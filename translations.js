@@ -33,6 +33,7 @@ const translations = {
         // Case Studies Section
         case_studies_title: "Our Success Stories",
         case_studies_subtitle: "Discover how we've helped businesses like yours achieve their goals.",
+        view_full_portfolio: "View Full Portfolio",
         ecommerce_growth_title: "E-commerce Growth",
         ecommerce_growth_challenge: "Challenge: A local fashion retailer struggled to transition online. Their sales were low, and their brand had minimal visibility.",
         ecommerce_growth_solution: "Solution: We launched a targeted social media campaign, optimized their website for conversions, and ran a PPC campaign. The result was a 400% increase in online sales within six months.",
@@ -139,6 +140,7 @@ const translations = {
         // Case Studies Section
         case_studies_title: "قصص نجاحنا",
         case_studies_subtitle: "اكتشف كيف ساعدنا الشركات مثلك على تحقيق أهدافها.",
+        view_full_portfolio: "عرض المحفظة الكاملة",
         ecommerce_growth_title: "نمو التجارة الإلكترونية",
         ecommerce_growth_challenge: "التحدي: عانى بائع تجزئة محلي للأزياء من صعوبة الانتقال عبر الإنترنت. كانت مبيعاتهم منخفضة، وكان لعلامتهم التجارية رؤية ضئيلة.",
         ecommerce_growth_solution: "الحل: أطلقنا حملة مستهدفة على وسائل التواصل الاجتماعي، وقمنا بتحسين موقعهم الإلكتروني للتحويلات، وأجرينا حملة PPC. وكانت النتيجة زيادة بنسبة 400% في المبيعات عبر الإنترنت في غضون ستة أشهر.",

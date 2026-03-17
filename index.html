@@ -347,6 +347,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="mt-16 text-center">
+                    <a href="portfolio.html" id="btn-view-portfolio" data-key="view_full_portfolio" class="btn-noir inline-block px-12 py-5 rounded-full text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-transform duration-300">
+                        View Full Portfolio
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -398,7 +404,7 @@
                 svcAuditList: "<li>• UX/UI Forensics</li><li>• Revenue Analysis</li><li>• Competitor Recon</li>",
                 svcBespokeTitle: "Custom Systems", svcBespokeDesc: "Bespoke AI-integrated growth architectures tailored for mission-critical regional objectives.",
                 svcBespokeList: "<li>• AI Integrations</li><li>• Custom Funnels</li><li>• Workflow SOPs</li>",
-                workTag: "PROVEN IMPACT", workTitle: "Regional Success",
+                workTag: "PROVEN IMPACT", workTitle: "Regional Success", btnViewPortfolio: "View Full Portfolio",
                 contactTitle: "Ready to Lead?", contactDesc: "We select our partners based on ambition and vision. If you are ready for exponential growth, initiate the dialogue.",
                 footerText: "&copy; 2024 MENAVERSE ONLINE. THE FUTURE OF REGIONAL GROWTH.",
                 switchLang: "Switch to Arabic"
@@ -425,7 +431,7 @@
                 svcAuditList: "<li>• الطب الشرعي للـ UX</li><li>• تحليل الإيرادات</li><li>• استطلاع المنافسين</li>",
                 svcBespokeTitle: "الأنظمة المخصصة", svcBespokeDesc: "هياكل نمو مدمجة بالذكاء الاصطناعي، مصممة خصيصاً لتحقيق الأهداف الإقليمية الحرجة لمهمتكم.",
                 svcBespokeList: "<li>• تكامل الذكاء الاصطناعي</li><li>• قنوات مخصصة</li><li>• أدلة العمل SOPs</li>",
-                workTag: "تأثير موثق", workTitle: "نجاحات إقليمية",
+                workTag: "تأثير موثق", workTitle: "نجاحات إقليمية", btnViewPortfolio: "عرض المحفظة الكاملة",
                 contactTitle: "هل أنت مستعد للريادة؟", contactDesc: "نختار شركاءنا بناءً على الطموح والرؤية. إذا كنت مستعداً لنمو استثنائي، ابدأ الحوار معنا الآن.",
                 footerText: "&copy; 2024 مينافـيـرس أونلاين. مستقبل النمو الإقليمي.",
                 switchLang: "Switch to English"
@@ -448,8 +454,8 @@
             document.body.className = currentLang === 'ar' ? 'font-arabic overflow-x-hidden' : 'font-english overflow-x-hidden';
             
             const map = {
-                'nav-home': 'navHome', 'nav-about': 'navAbout', 'nav-services': 'navServices', 'nav-work': 'navWork', 'btn-quote': 'btnQuote',
-                'm-nav-home': 'navHome', 'm-nav-about': 'navAbout', 'm-nav-services': 'navServices', 'm-nav-work': 'navWork', 'm-btn-quote': 'btnQuote',
+                'nav-home': 'navHome', 'nav-about': 'navAbout', 'nav-services': 'navServices', 'nav-work': 'navWork', 'nav-portfolio': 'navPortfolio', 'btn-quote': 'btnQuote',
+                'm-nav-home': 'navHome', 'm-nav-about': 'navAbout', 'm-nav-services': 'navServices', 'm-nav-work': 'navWork', 'm-nav-portfolio': 'navPortfolio', 'm-btn-quote': 'btnQuote',
                 'hero-tag': 'heroTag', 'hero-title': 'heroTitle', 'hero-desc': 'heroDesc', 'hero-btn-primary': 'heroBtnPrimary', 'hero-btn-secondary': 'heroBtnSecondary',
                 'about-tag': 'aboutTag', 'about-title': 'aboutTitle', 'about-p1': 'aboutP1', 'about-p2': 'aboutP2',
                 'svc-tag': 'svcTag', 'services-title': 'servicesTitle',
@@ -459,7 +465,7 @@
                 'svc-media-title': 'svcMediaTitle', 'svc-media-desc': 'svcMediaDesc', 'svc-media-list': 'svcMediaList',
                 'svc-audit-title': 'svcAuditTitle', 'svc-audit-desc': 'svcAuditDesc', 'svc-audit-list': 'svcAuditList',
                 'svc-bespoke-title': 'svcBespokeTitle', 'svc-bespoke-desc': 'svcBespokeDesc', 'svc-bespoke-list': 'svcBespokeList',
-                'work-tag': 'workTag', 'work-title': 'workTitle', 'contact-title': 'contactTitle', 'contact-desc': 'contactDesc', 'footer-text': 'footerText'
+                'work-tag': 'workTag', 'work-title': 'workTitle', 'btn-view-portfolio': 'btnViewPortfolio', 'contact-title': 'contactTitle', 'contact-desc': 'contactDesc', 'footer-text': 'footerText'
             };
 
             for (let id in map) {
